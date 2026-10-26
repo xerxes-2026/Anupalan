@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AnuPalan AICTE Admin Portal</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFENUZBNyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE0MjEzRCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cGF0aCBkPSJNMzIgMyBMNTYgMTEgVjMwIEM1NiA0NSA0NiA1NiAzMiA2MSBDMTggNTYgOCA0NSA4IDMwIFYxMSBaIiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiNGNEI0MDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xOCAyNiBMMzIgMTggTDQ2IDI2IFoiIGZpbGw9IiNmZmYiLz4KPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iNCIgaGVpZ2h0PSIxMyIgcng9IjEiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIzMCIgeT0iMjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjEzIiByeD0iMSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjQwIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iMTMiIHJ4PSIxIiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjE3IiB5PSI0MiIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMuNSIgcng9IjEiIGZpbGw9IiNmZmYiLz4KPGNpcmNsZSBjeD0iNDUiIGN5PSI0NSIgcj0iOSIgZmlsbD0iIzE1QTM0QSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTQwLjUgNDUuMiBMNDMuOCA0OC40IEw0OS42IDQyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213D;--blue:#1D5FA7;--sky:#E3EEF9;--bg:#F4F7FB;--ink:#1A202C;--slate:#4A5568;--line:#D5DCE5;
+--l1:#2E7D5B;--l1b:#E1F2EA;--l2:#9A7B0A;--l2b:#FFF4D6;--l2d:#E3B505;--l3:#C46A12;--l3b:#FBEBD9;--l4:#B23A48;--l4b:#F8E1E4}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:13.5px/1.5 Inter,'Segoe UI',Roboto,Arial,sans-serif}
+button{font:inherit;cursor:pointer}input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:var(--card)}
+.top{background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:9px 16px;position:sticky;top:0;z-index:15;flex-wrap:wrap}
+.top b{font-size:16px}.pill{font-size:11px;background:var(--card)fff22;padding:2px 8px;border-radius:20px}.sp{flex:1}
+.top select{background:var(--card)fff18;color:#fff;border:1px solid #ffffff44;padding:4px 8px}.top select option{color:#000}
+.clock{display:flex;gap:6px;align-items:center;background:var(--card)fff14;padding:3px 8px;border-radius:8px;font-size:12px}
+.clock button{background:var(--card)fff22;color:#fff;border:0;border-radius:6px;padding:3px 7px;font-size:12px}
+.wrap{display:flex;min-height:calc(100vh - 48px)}
+nav{width:212px;background:var(--card);border-right:1px solid var(--line);padding:12px 8px;flex-shrink:0}
+nav button{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:8px 10px;border-radius:8px;color:var(--ink)}
+nav button.on{background:var(--sky);color:var(--blue);font-weight:600}nav button .n{margin-left:auto;font-size:11px;background:var(--l4);color:#fff;border-radius:10px;padding:0 6px}
+main{flex:1;padding:20px;min-width:0}
+h1{font-size:21px;margin:0 0 2px;color:var(--navy)}.sub{color:var(--slate);margin:0 0 16px}
+h3{margin:0 0 10px;font-size:15px;color:var(--navy)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.btn{background:var(--blue);color:#fff;border:0;border-radius:8px;padding:7px 12px;font-weight:600}
+.btn.s{padding:4px 9px;font-size:12px}.btn.ghost{background:var(--card);color:var(--blue);border:1px solid var(--blue)}.btn.red{background:var(--l4)}.btn.green{background:var(--l1)}.btn.orange{background:var(--l3)}
+.lv{white-space:nowrap;display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11.5px;padding:2px 9px;border-radius:20px}
+.lv i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.L1{background:var(--l1b);color:var(--l1)}.L1 i{background:var(--l1)}.L2{background:var(--l2b);color:var(--l2)}.L2 i{background:var(--l2d)}
+.L3{background:var(--l3b);color:var(--l3)}.L3 i{background:var(--l3)}.L4{background:var(--l4b);color:var(--l4)}.L4 i{background:var(--l4)}
+table{width:100%;border-collapse:collapse}th{font-size:11px;text-align:left;color:var(--slate);font-weight:600;padding:7px;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+td{padding:8px 7px;border-bottom:1px solid var(--line2);vertical-align:middle}tr.click:hover td{background:var(--soft);cursor:pointer}
+.muted{color:var(--slate);font-size:12px}.kpi{font-size:26px;font-weight:700;color:var(--navy)}
+.pipe{display:flex;gap:3px;align-items:center;flex-wrap:wrap}.st{font-size:11px;padding:2px 7px;border-radius:5px;background:var(--line2);color:var(--slate);white-space:nowrap}
+.st.done{background:var(--l1b);color:var(--l1)}.st.cur{background:var(--blue);color:#fff;font-weight:600}
+.heat td{text-align:center;font-weight:600;border:2px solid var(--card);border-radius:4px}
+.bar{height:8px;background:var(--line2);border-radius:5px;overflow:hidden}.bar b{display:block;height:100%}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:min(520px,100%);background:var(--card);box-shadow:-8px 0 30px #0002;padding:18px;overflow:auto;transform:translateX(105%);transition:.25s;z-index:30}
+.drawer.open{transform:none}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 15px;border-radius:10px;display:none;z-index:50;max-width:90%}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:14px}.tl div{position:relative;margin-bottom:9px;font-size:12.5px}
+.tl div::before{content:"";position:absolute;left:-21px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.ai{background:var(--sky);border-radius:10px;padding:10px 12px;font-size:13px}
+.preview{background:var(--soft);border:1px dashed var(--line);border-radius:10px;padding:10px;font-size:12.5px;white-space:pre-line}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.thumb{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);font-size:11.5px}
+.thumb img{width:100%;height:100px;object-fit:cover;display:block;background:var(--line2)}.thumb div{padding:6px 8px}
+.ok{color:var(--l1);font-weight:700}.warn{color:var(--l3);font-weight:700}.bad{color:var(--l4);font-weight:700}
+/* chat */
+.fab{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;border:0;font-size:24px;box-shadow:0 6px 18px #1D5FA766;z-index:25}
+.chatbox{position:fixed;right:20px;bottom:86px;width:min(390px,calc(100% - 24px));height:min(560px,calc(100vh - 120px));background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 40px #0003;display:none;flex-direction:column;z-index:26}
+.chatbox.open{display:flex}.chead{background:var(--navy);color:#fff;padding:10px 12px;border-radius:14px 14px 0 0;display:flex;align-items:center;gap:8px}
+.msgs{flex:1;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.m{max-width:85%;padding:8px 11px;border-radius:12px;white-space:pre-line;font-size:13px}.m.bot{background:var(--sky)}.m.me{background:var(--blue);color:#fff;align-self:flex-end}
+.chips{display:flex;flex-wrap:wrap;gap:5px;padding:0 10px 6px}.chip{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:3px 9px;font-size:12px}
+.inbar{display:flex;gap:6px;padding:8px;border-top:1px solid var(--line)}.inbar input{flex:1;border-radius:20px}
+.mic{width:38px;height:38px;border-radius:50%;border:0;background:var(--l4);color:#fff}.mic.live{animation:p 1s infinite}@keyframes p{0%{box-shadow:0 0 0 0 #B23A4866}100%{box-shadow:0 0 0 12px #B23A4800}}
+.ladder{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.ladder span{padding:6px 10px;border-radius:8px;font-size:12px;font-weight:600}
+@media(max-width:900px){.wrap{flex-direction:column}nav{width:auto;display:flex;overflow-x:auto;padding:6px;border-right:0;border-bottom:1px solid var(--line)}nav button{white-space:nowrap;width:auto}
+.g3,.g4,.g5{grid-template-columns:1fr 1fr}.g2{grid-template-columns:minmax(0,1fr)}.card{overflow:auto}main{padding:12px}.hide-m{display:none}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--navy)}
+.top{top:env(safe-area-inset-top,0px)!important;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.fab{right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+:root{color-scheme:light}
+.jrn{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.js{display:flex;gap:8px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:8px}
+.js b{background:var(--blue);color:#fff;border-radius:50%;min-width:22px;height:22px;display:grid;place-items:center;font-size:11px}
+.js span{font-weight:600;font-size:12.5px;color:var(--navy)}.js small{display:block;font-weight:400;color:var(--slate);font-size:11px}
+.js.off{opacity:.45;cursor:default}
+.chk6{display:grid;gap:6px}.chk6 div{display:flex;flex-direction:column;border-radius:8px;padding:7px 10px;font-size:12.5px}
+.chk6 .ok{background:var(--l1b);color:var(--l1)}.chk6 .warn{background:var(--l3b);color:var(--l3)}.chk6 .bad{background:var(--l4b);color:var(--l4)}.chk6 span{color:var(--ink);font-weight:400}
+.vox{display:flex;flex-direction:column;gap:12px}.vtop{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--blue);border-radius:8px;overflow:hidden}.seg button{border:0;background:var(--card);color:var(--blue);padding:5px 12px}.seg button.on{background:var(--blue);color:#fff}
+.orb{width:110px;height:110px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:40px;margin:6px auto 0;display:block}
+.orb.live{background:var(--l4);animation:p 1s infinite}
+.vlog{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow:auto}
+.phone{background:var(--navy);border-radius:26px;padding:14px;display:flex;flex-direction:column;gap:10px;max-width:380px;width:100%;margin:0 auto 14px}
+.ptop{color:#fff;text-align:center}.ptop small{display:block;color:#cbd5e1}.ptop div{font-size:12px;color:#9AE6B4;margin-top:2px}
+.plog{background:var(--card);border-radius:14px;height:260px;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.keys button{border:0;border-radius:12px;padding:10px;font-size:18px;font-weight:700;background:var(--card)fff1f;color:#fff}
+.pin{display:flex;gap:6px}.pin input{flex:1;border-radius:20px}
+.pbtn{display:flex;justify-content:center}.dial{border:0;border-radius:24px;padding:10px 28px;font-weight:700;background:var(--l1);color:#fff;font-size:15px}.dial.end{background:var(--l4)}
+.tld{margin:12px 0 6px -14px;font-size:12px;color:var(--slate);text-transform:uppercase;letter-spacing:.05em}
+
+/* ===== v7 design system ===== */
+:root{--card:#fff;--soft:#F8FAFD;--line2:#EEF2F7;--head:#14213D;--topdim:#cbd5e1;--shadow:0 1px 2px #14213D0f,0 4px 14px #14213D0d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#0B1322;--blue:#5B9BE6;--sky:#1B2A44;--bg:#0E1626;--ink:#E6EBF3;--slate:#9AA7BA;--line:#2A3850;--line2:#1F2B40;--card:#152034;--soft:#1A263C;--head:#F1F5FB;
+--l1:#4CC38A;--l1b:#163A2C;--l2:#E9C74A;--l2b:#3A3216;--l2d:#E9C74A;--l3:#F29A4A;--l3b:#43291A;--l4:#F0707E;--l4b:#46202A;--shadow:none;color-scheme:dark}}
+:root[data-theme="dark"]{--navy:#0B1322;--blue:#5B9BE6;--sky:#1B2A44;--bg:#0E1626;--ink:#E6EBF3;--slate:#9AA7BA;--line:#2A3850;--line2:#1F2B40;--card:#152034;--soft:#1A263C;--head:#F1F5FB;
+--l1:#4CC38A;--l1b:#163A2C;--l2:#E9C74A;--l2b:#3A3216;--l2d:#E9C74A;--l3:#F29A4A;--l3b:#43291A;--l4:#F0707E;--l4b:#46202A;--shadow:none;color-scheme:dark}
+html,body{background:var(--bg);color:var(--ink)}
+h1,h3,.kpi,.js span{color:var(--head)}
+input,select,textarea{background:var(--card);color:var(--ink)}
+.card{box-shadow:var(--shadow)}
+nav{background:var(--card);border-color:var(--line);width:224px}
+.drawer,.chatbox{background:var(--card);color:var(--ink)}
+.m.me{color:#fff}.st.cur{color:#fff}
+.btn.ghost{background:transparent}
+:root[data-theme="dark"] .btn:not(.ghost):not(.red):not(.green):not(.orange),:root[data-theme="dark"] .m.me,:root[data-theme="dark"] .st.cur,:root[data-theme="dark"] .fab{color:#0B1322}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn:not(.ghost):not(.red):not(.green):not(.orange),:root:not([data-theme="light"]) .m.me,:root:not([data-theme="light"]) .st.cur,:root:not([data-theme="light"]) .fab{color:#0B1322}}
+.tbtn{background:#ffffff22;color:#fff;border:0;border-radius:8px;padding:4px 9px}
+.grp{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);padding:12px 10px 4px}
+.grp:first-child{padding-top:2px}
+nav button .n{margin-left:auto;font-size:11px;font-weight:700;border-radius:10px;padding:0 7px;color:#fff}
+nav button .n.L1{background:var(--l1)}nav button .n.L2{background:var(--l2d);color:#2B2306}nav button .n.L3{background:var(--l3)}nav button .n.L4{background:var(--l4)}
+.legend{margin:16px 6px 4px;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:11.5px;color:var(--slate);display:grid;gap:5px}
+.legend b{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.legend span{display:flex;align-items:center;gap:7px}.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.hello{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.counts{display:flex;gap:6px;flex-wrap:wrap}
+.kts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:14px}
+.kt{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);text-align:left;color:var(--ink)}
+.kt small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate)}
+.kt b{display:block;font-size:28px;line-height:1.2;color:var(--head);margin:2px 0 6px}
+.kt.L1{border-left-color:var(--l1)}.kt.L2{border-left-color:var(--l2d)}.kt.L3{border-left-color:var(--l3)}.kt.L4{border-left-color:var(--l4)}
+.kt.L1,.kt.L2,.kt.L3,.kt.L4{background:var(--card)}
+.homeg{display:grid;gap:14px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.task{display:flex;gap:10px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--line2)}
+.task:last-child{border-bottom:0}.task>div{flex:1;min-width:0}.task b{display:block;font-size:13px}.task small{color:var(--slate);font-size:11.5px}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.dot.L1{background:var(--l1)}.dot.L2{background:var(--l2d)}.dot.L3{background:var(--l3)}.dot.L4{background:var(--l4)}
+.qa{display:flex;flex-wrap:wrap;gap:8px}
+.act{font-size:12px;padding:6px 0;border-bottom:1px solid var(--line2)}.act:last-child{border-bottom:0}.act small{color:var(--slate)}
+.toast{border:1px solid var(--line);box-shadow:var(--shadow)}
+.empty{text-align:center;padding:22px 10px;color:var(--slate)}.empty div{font-size:30px}
+@media(max-width:900px){nav{width:auto}.grp,.legend{display:none}.homeg{grid-template-columns:minmax(0,1fr)}nav button .n{margin-left:6px}}
+
+/* ===== v9 two linked sites ===== */
+:root[data-portal="people"]{--navy:#0B4F57}
+@media (prefers-color-scheme:dark){:root[data-portal="people"]:not([data-theme="light"]){--navy:#08262A}}
+:root[data-portal="people"][data-theme="dark"]{--navy:#08262A}
+.site{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#ffffff22;border-radius:6px;padding:3px 8px}
+.xlink{color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;border:1px solid #ffffff44;border-radius:8px;padding:4px 9px;white-space:nowrap}.xlink:hover{background:#ffffff1a}
+.live{font-size:12px;color:#cbd5e1;white-space:nowrap}.live::before{content:"●";margin-right:4px;color:#5FD39A}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.how div{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--slate)}.how b{display:block;color:var(--head);font-size:12.5px}.how .me{border-color:var(--blue)}
+.trk{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.trk div{flex:1;min-width:110px;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px;font-size:12.5px;color:var(--slate)}
+.trk b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--line2);color:var(--slate);font-size:12px;flex-shrink:0}
+.trk .done{border-color:var(--l1);color:var(--ink)}.trk .done b{background:var(--l1);color:#fff}.trk .now{border-color:var(--blue);color:var(--ink);font-weight:600}.trk .now b{background:var(--blue);color:#fff}
+@media(max-width:700px){.how{grid-template-columns:minmax(0,1fr)}.site{display:none}}
+</style>
+<style id="aplogo">.aplogo{width:30px;height:30px;flex:none;display:block}
+.sv-brand i.sv-logo{background:none!important;width:38px;height:38px}.sv-brand i.sv-logo img{width:38px;height:38px;display:block}
+.apcredit{font-size:11px;opacity:.85;border:1px solid #ffffff40;border-radius:20px;padding:2px 9px;white-space:nowrap}
+.sv-credit{display:block;width:100%;font-size:12.5px;margin-top:6px}
+.aicte-slot{height:30px;width:auto;background:#fff;border-radius:6px;padding:2px 4px}</style>
+<div class="top"><img class="aplogo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFENUZBNyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE0MjEzRCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8cGF0aCBkPSJNMzIgMyBMNTYgMTEgVjMwIEM1NiA0NSA0NiA1NiAzMiA2MSBDMTggNTYgOCA0NSA4IDMwIFYxMSBaIiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiNGNEI0MDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xOCAyNiBMMzIgMTggTDQ2IDI2IFoiIGZpbGw9IiNmZmYiLz4KPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iNCIgaGVpZ2h0PSIxMyIgcng9IjEiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIzMCIgeT0iMjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjEzIiByeD0iMSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjQwIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iMTMiIHJ4PSIxIiBmaWxsPSIjZmZmIi8+CjxyZWN0IHg9IjE3IiB5PSI0MiIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMuNSIgcng9IjEiIGZpbGw9IiNmZmYiLz4KPGNpcmNsZSBjeD0iNDUiIGN5PSI0NSIgcj0iOSIgZmlsbD0iIzE1QTM0QSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTQwLjUgNDUuMiBMNDMuOCA0OC40IEw0OS42IDQyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+" alt="AnuPalan logo"><b>AnuPalan</b><img class="aicte-slot" src="aicte-logo.png" alt="AICTE" onerror="this.remove()"><span class="apcredit hide-m">Prototype for AICTE · SIH26262</span><span class="sp"></span>
+<span class="site">AICTE Admin Portal</span><span class="live hide-m" id="live" title="Shares live data with the People site">Live link</span><a class="xlink" href="https://jeevanmajhi2008-sudo.github.io/anupalan/public-site/" target="_blank" rel="noopener" title="Open the People site in a new tab">🔗 AnuPalan ↗</a><label class="muted" style="color:#cbd5e1">Sign in as</label><select id="role"></select>
+<div class="clock">📅 <span id="today"></span><button onclick="tick(1)">+1 day</button><button onclick="tick(7)">+7 days</button><button onclick="reset()" title="Reset demo data">↺</button></div><button class="tbtn" onclick="theme7()" title="Light / dark" aria-label="Switch light or dark theme">🌓</button></div>
+<div class="wrap"><nav id="nav"></nav><main id="main"></main></div>
+<div class="drawer" id="drawer"></div><div class="toast" id="toast"></div>
+<button class="fab" onclick="toggleChat()" title="AI assistant">🤖</button>
+<div class="chatbox" id="chat"><div class="chead">🤖 <b>AnuSahayak</b><span class="muted" style="color:#cbd5e1">AI assistant · chat + voice</span><span class="sp"></span><button onclick="ttsT()" id="ttsb" style="background:none;border:0;color:#fff">🔊</button><button onclick="toggleChat()" style="background:none;border:0;color:#fff">✕</button></div>
+<div class="msgs" id="msgs"></div><div class="chips" id="chips"></div>
+<div class="inbar"><button class="mic" id="mic" onclick="mic()">🎙️</button><input id="inp" placeholder="Ask about applications, EVC scheduling, inspections, leases…" onkeydown="if(event.key==='Enter')ask()"><button class="btn s" onclick="ask()">Send</button></div></div>
+<script>
+try{const t=localStorage.getItem("ap7_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+window.theme7=()=>{const d=document.documentElement,dark=d.dataset.theme?d.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;d.dataset.theme=dark?"light":"dark";try{localStorage.setItem("ap7_theme",d.dataset.theme)}catch(e){}toast(dark?"Light theme":"Dark theme")};
+/* ================= CONFIG (editable in Rules) ================= */
+const BASE=Date.UTC(2026,9,25)/864e5;
+const DEF_RULES={
+ routes:{"Only Scrutiny":["Scrutiny","Decision"],"Scrutiny + EVC":["Scrutiny","EVC","Decision"],"EVC + SAC/SHC":["EVC","SAC/SHC","Decision"],"Only EVC":["EVC","Decision"],"Scrutiny + EVC + SAC/SHC":["Scrutiny","EVC","SAC/SHC","Decision"]},
+ typeRoute:{"New Institution":"Scrutiny + EVC + SAC/SHC","Extension of Approval (no change)":"Only Scrutiny","Increase in Intake":"Scrutiny + EVC","Change of Site":"EVC + SAC/SHC","Restoration of Intake":"Only EVC","New Programme":"Scrutiny + EVC"},
+ sla:{"Scrutiny":15,"Re-scrutiny":7,"EVC":30,"EVC (new institution)":21,"SAC/SHC":15,"Decision":7},
+ th:{app:[5,-1,-7],und:[15,-1,-15],doc:[90,30,0]},
+ ladder:["Case officer","Regional Director","Approval Bureau Head","Member Secretary (competent authority)"]};
+const LBL={app:["On track","Due soon","Overdue","Escalated"],und:["On track","Due soon","Overdue","Escalated"],doc:["Valid","Expiring ≤90 d","Expiring ≤30 d","Expired"]};
+const REG={"New Delhi":"North","Mumbai":"West","Chennai":"South","Kolkata":"East","Bhopal":"Central","Hyderabad":"South-Central"};
+const OFF={"New Delhi":"A. Sharma","Mumbai":"R. Mehta","Chennai":"K. Iyer","Kolkata":"S. Banerjee","Bhopal":"P. Verma","Hyderabad":"N. Reddy"};
+const EXPERTS=[{n:"Prof. V. Rao (IIT Bombay)",r:"Mumbai",spec:/Technology|Engineering/},{n:"Dr. M. Kulkarni (COEP)",r:"Mumbai",spec:/Engineering|Polytechnic/,home:"Sahyadri College of Engineering"},{n:"Ar. P. Joshi (SPA Bhopal)",r:"Bhopal",spec:/Architecture/},{n:"Dr. H. Khan (Jamia)",r:"New Delhi",spec:/Management/},{n:"Prof. S. Gupta (DTU)",r:"New Delhi",spec:/Technology|Engineering/},{n:"Dr. L. Nair (NIT Trichy)",r:"Chennai",spec:/Engineering|Pharmacy/},{n:"Prof. A. Das (Jadavpur)",r:"Kolkata",spec:/Technology/},{n:"Dr. R. Jain (MANIT)",r:"Bhopal",spec:/Engineering/},{n:"Dr. S. Mohanty (NIT Rourkela)",r:"Kolkata",spec:/Technology|Engineering|Information/},{n:"Prof. T. Rao (JNTU)",r:"Hyderabad",spec:/Architecture|Polytechnic/}];
+/* ================= STATE ================= */
+let S;
+function seed(){const d=BASE;const A=(id,inst,reg,type,stage,ago,extra)=>({id,inst,reg,type,route:DEF_RULES.typeRoute[type],si:stage,start:d-ago,officer:OFF[reg],isNew:type==="New Institution",ret:0,notified:0,status:"Active",evc:null,...extra});
+S={today:d,rules:JSON.parse(JSON.stringify(DEF_RULES)),audit:[],notes:[],seenHashes:{},
+apps:[A("APP-27-1042","ABC Institute of Technology","Mumbai","Increase in Intake",0,4),
+A("APP-27-1043","Sahyadri College of Engineering","Mumbai","New Institution",1,25),
+A("APP-27-1051","Konkan Polytechnic","Mumbai","Extension of Approval (no change)",0,18),
+A("APP-27-1077","Indus School of Management","New Delhi","Change of Site",0,12),
+A("APP-27-1080","Yamuna Institute of Technology","New Delhi","New Institution",0,9),
+A("APP-27-1102","Cauvery Engineering College","Chennai","Increase in Intake",1,33),
+A("APP-27-1108","Marina Institute of Pharmacy","Chennai","Extension of Approval (no change)",0,3),
+A("APP-27-1120","Hooghly Institute of Technology","Kolkata","Restoration of Intake",0,27),
+A("APP-27-1131","Narmada College of Engineering","Bhopal","New Programme",0,16),
+A("APP-27-1140","Deccan Institute of Architecture","Hyderabad","Change of Site",1,10),
+A("APP-27-1144","Godavari Polytechnic","Hyderabad","Extension of Approval (no change)",1,2),
+A("APP-27-1150","Vindhya Institute of Technology","Bhopal","New Institution",2,5),
+A("APP-27-1160","IIIT Bhubaneswar","Kolkata","Increase in Intake",1,11)],
+und:[{id:"UT-0311",inst:"ABC Institute of Technology",reg:"Mumbai",cond:"Complete 2nd library block and submit completion certificate",due:d+12,st:"Pending",ev:null,notified:0},
+{id:"UT-0298",inst:"Cauvery Engineering College",reg:"Chennai",cond:"Recruit 6 faculty to meet 1:20 ratio; submit appointment orders",due:d-4,st:"Pending",ev:null,notified:0},
+{id:"UT-0287",inst:"Hooghly Institute of Technology",reg:"Kolkata",cond:"Obtain fire NOC for new hostel block",due:d-19,st:"Pending",ev:null,notified:0},
+{id:"UT-0320",inst:"Indus School of Management",reg:"New Delhi",cond:"Submit registered lease deed for new site",due:d+40,st:"Submitted",ev:"lease_indus.pdf",notified:0},
+{id:"UT-0330",inst:"IIIT Bhubaneswar",reg:"Kolkata",cond:"Upload faculty appointment orders for the added B.Tech CSE intake",due:d+20,st:"Pending",ev:null,notified:0},
+{id:"UT-0322",inst:"Narmada College of Engineering",reg:"Bhopal",cond:"Set up anti-ragging and grievance committees; upload minutes",due:d+3,st:"Pending",ev:null,notified:0}],
+docs:[{id:"DOC-5501",inst:"ABC Institute of Technology",reg:"Mumbai",type:"Lease deed (land)",exp:d+62,st:"Valid",notified:0},
+{id:"DOC-5502",inst:"Konkan Polytechnic",reg:"Mumbai",type:"Fire safety NOC",exp:d+21,st:"Valid",notified:0},
+{id:"DOC-5503",inst:"Indus School of Management",reg:"New Delhi",type:"Lease deed (building)",exp:d-6,st:"Valid",notified:0},
+{id:"DOC-5504",inst:"Cauvery Engineering College",reg:"Chennai",type:"Building stability certificate",exp:d+210,st:"Valid",notified:0},
+{id:"DOC-5505",inst:"Deccan Institute of Architecture",reg:"Hyderabad",type:"Lease deed (land)",exp:d+95,st:"Valid",notified:0},
+{id:"DOC-5506",inst:"Hooghly Institute of Technology",reg:"Kolkata",type:"Land use conversion order",exp:d+8,st:"Valid",notified:0},
+{id:"DOC-5508",inst:"IIIT Bhubaneswar",reg:"Kolkata",type:"Fire safety NOC",exp:d+45,st:"Valid",notified:0},{id:"DOC-5509",inst:"IIIT Bhubaneswar",reg:"Kolkata",type:"Building stability certificate",exp:d+320,st:"Valid",notified:0}]};
+S.apps[1].evc={date:d+6,panel:["Prof. V. Rao (IIT Bombay)","Dr. M. Kulkarni (COEP)"],photos:[],report:null};
+S.apps[5].evc={date:d-2,panel:["Dr. L. Nair (NIT Trichy)"],photos:[],report:null};
+S.apps[9].evc=null;S.apps[10].evc={date:d+14,panel:["Prof. T. Rao (JNTU)"],photos:[],report:null};
+S.apps[11].si=2;
+S.seenHashes["demo-dup-hash"]=true;v5seed();
+S.scans=[];log("System","SEED","—","Demo data loaded (IIIT Bhubaneswar records are illustrative; other names fictional)");engine(true)}
+function save(){try{localStorage.setItem("anupalan13",JSON.stringify(S))}catch(e){}}
+function load(){try{const x=localStorage.getItem("anupalan13");if(x){S=JSON.parse(x);return true}}catch(e){}return false}
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const fmt=n=>{const t=new Date(n*864e5);return t.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})};
+function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(e._t);e._t=setTimeout(()=>e.style.display="none",3200)}
+function fnv(str){let h=0x811c9dc5;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")}
+function log(actor,action,ref,detail){const prev=S.audit.length?S.audit[S.audit.length-1].h:"00000000";const e={t:S.today,actor,action,ref,detail,p:prev};e.h=fnv(prev+e.t+actor+action+ref+detail);S.audit.push(e)}
+function stages(a){return S.rules.routes[a.route]}
+function curStage(a){return stages(a)[a.si]}
+function slaOf(a){const st=curStage(a);if(st==="EVC"&&a.isNew)return S.rules.sla["EVC (new institution)"];if(st==="Scrutiny"&&a.ret)return S.rules.sla["Re-scrutiny"];return S.rules.sla[st]}
+function lvl(d,k){const t=S.rules.th[k];return d>t[0]?1:d>t[1]?2:d>=t[2]?3:4}
+function chip(l,k){return `<span class="lv L${l}"><i></i>${LBL[k][l-1]}</span>`}
+function appInfo(a){const due=a.start+slaOf(a),left=due-S.today,age=S.today-a.start;return{due,left,age,l:a.status!=="Active"?1:lvl(left,"app")}}
+/* ================= ENGINE: alerts + escalation ================= */
+function notify(to,ch,ref,msg){S.notes.unshift({t:S.today,to,ch,ref,msg})}
+function engine(silent){let n=0;
+S.apps.forEach(a=>{if(a.status!=="Active")return;const i=appInfo(a);if(i.l>a.notified){
+ if(i.l===2){notify(a.officer+" (case officer)","In-app + email",a.id,`${curStage(a)} due in ${i.left} day(s) for ${a.inst}`);log("Engine","REMINDER",a.id,`${curStage(a)} due ${fmt(i.due)}`)}
+ if(i.l===3){notify("Regional Director, "+a.reg,"Email + SMS",a.id,`${curStage(a)} overdue by ${-i.left} day(s)`);log("Engine","ESCALATED",a.id,`Overdue → ${S.rules.ladder[1]}`)}
+ if(i.l===4){notify(S.rules.ladder[2],"Email + SMS + dashboard",a.id,`${curStage(a)} overdue by ${-i.left} day(s); flagged for ${S.rules.ladder[3]}`);log("Engine","ESCALATED",a.id,`Overdue >7 days → ${S.rules.ladder[2]}`)}
+ if(i.l>=2)n++;a.notified=i.l}
+ if(curStage(a)==="EVC"&&a.evc&&a.evc.date&&!a.evc.report){const dd=a.evc.date-S.today;if(dd<=2&&dd>=0&&!a.evc.rem){a.evc.rem=1;a.evc.panel.forEach(n=>notify(n,"SMS + calendar",a.id,`EVC visit in ${dd} day(s) at ${a.inst}`));log("Engine","EVC_REMINDER",a.id,"Panel reminded, visit "+fmt(a.evc.date));n++}
+  if(dd<0&&a.evc.rem!==2){a.evc.rem=2;notify("Regional Director, "+a.reg,"Email + SMS",a.id,"EVC date passed without a report");log("Engine","ESCALATED",a.id,"EVC visit date passed, no report");n++}}
+ if(curStage(a)==="EVC"&&!a.evc){a.evc={date:null,panel:[],photos:[],report:null};log("Engine","EVC_QUEUED",a.id,"Preliminary processing complete; placed in EVC queue")}});
+S.und.forEach(u=>{if(u.st==="Verified")return;const l=lvl(u.due-S.today,"und");if(l>u.notified){const m={2:"due in "+(u.due-S.today)+" day(s)",3:"overdue",4:"overdue >15 days, escalated"}[l];
+ if(l>=2){notify(u.inst+" (principal)","Email + SMS",u.id,`Undertaking ${m}: ${u.cond}`);if(l>=3)notify(l===4?S.rules.ladder[2]:"Regional Director, "+u.reg,"Email",u.id,`Undertaking ${m}`);log("Engine",l>=3?"ESCALATED":"REMINDER",u.id,"Undertaking "+m);n++}u.notified=l}});
+S.docs.forEach(x=>{if(x.st==="Renewal verified"&&x.exp>S.today+90)return;const l=lvl(x.exp-S.today,"doc");if(l>x.notified){const m={2:"expires in "+(x.exp-S.today)+" days (T-90)",3:"expires in "+(x.exp-S.today)+" days (T-30)",4:"EXPIRED"}[l];
+ if(l>=2){notify(x.inst+" (principal)","Email + SMS",x.id,`${x.type} ${m}. Upload renewed document.`);if(l===4)notify("Regional Director, "+x.reg,"Email + SMS",x.id,`${x.type} expired; renewal not received`);log("Engine",l===4?"ESCALATED":"ADVANCE_ALERT",x.id,x.type+" "+m);n++}x.notified=l}});
+n+=engine5();save();if(!silent&&n)toast(`⚡ ${n} automatic alert(s)/escalation(s) generated`);return n}
+window.tick=d=>{S.today+=d;log("System","CLOCK",`+${d}d`,"Simulated date moved to "+fmt(S.today));engine();render()};
+window.reset=()=>{localStorage.removeItem("anupalan13");seed();render();toast("Demo data reset")};
+/* ================= ROLES ================= */
+const ROLES={"Regional Officer · Kolkata (Eastern, incl. Odisha)":{reg:"Kolkata",nav:["dash","apps","scan","evc","und","docs","complaints","risk","housing","alerts","audit","timeline","voice","call"]},"Regional Officer · Mumbai":{reg:"Mumbai",nav:["dash","apps","scan","evc","und","docs","complaints","risk","housing","alerts","audit","timeline","voice","call"]},"Bureau Officer (all regions)":{nav:["dash","apps","scan","evc","und","docs","complaints","risk","housing","alerts","reports","audit","timeline","voice","call"]},
+"Institution · IIIT Bhubaneswar (Registrar)":{inst:"IIIT Bhubaneswar",nav:["inst","scan","und","docs","timeline","voice","call"]},"Student · IIIT Bhubaneswar":{inst:"IIIT Bhubaneswar",member:"Student",nav:["raise","mine","scan","voice","call","timeline"]},"Professor · IIIT Bhubaneswar":{inst:"IIIT Bhubaneswar",member:"Professor",nav:["raise","mine","scan","voice","call","timeline"]},
+"Student · Riya Sen (ABC Institute)":{inst:"ABC Institute of Technology",member:"Student",nav:["raise","mine","scan","voice","call"]},"Professor · Dr. A. Kulkarni (ABC Institute)":{inst:"ABC Institute of Technology",member:"Professor",nav:["raise","mine","scan","voice","call"]},"Public / parent (no sign-in)":{pub:1,nav:["raise","call"]},
+"EVC Expert · Prof. V. Rao":{expert:"Prof. V. Rao (IIT Bombay)",nav:["evc","scan","voice"]},"Institution · ABC Institute of Technology":{inst:"ABC Institute of Technology",nav:["inst","scan","und","docs","timeline","voice","call"]},
+"Competent Authority (Member Secretary)":{nav:["dash","complaints","risk","housing","alerts","reports","audit","timeline","voice"]},"Admin (rules & timelines)":{nav:["rules","audit"]}};
+let role=Object.keys(ROLES)[0],cur="home";
+const NAV={scan:"🔍 AI proof scanner",voice:"🎙️ Voice assistant",call:"📞 Call AnuSahayak",timeline:"🕒 Timeline",complaints:"📣 Complaints",risk:"🛡️ Threat & watchlist",housing:"🏠 Hostels & PGs",raise:"📣 Raise a complaint",mine:"🗒️ My complaints",dash:"📊 Dashboard",apps:"🗂️ Applications",evc:"🏫 EVC scheduling",und:"📝 Undertakings",docs:"📄 Lease & documents",alerts:"🔔 Alerts & escalation",reports:"📈 Reports",audit:"🔗 Audit trail",rules:"⚙️ Rules & timelines",inst:"🏫 My institution"};
+Object.values(ROLES).forEach(r=>{if(!r.pub&&r.nav[0]!=="home")r.nav.unshift("home")});NAV.home="🏠 Home";
+function R(){return ROLES[role]}
+function vis(x){const r=R();if(r.member)return x.inst===r.inst;if(r.reg)return x.reg===r.reg;if(r.inst)return x.inst===r.inst;return true}
+/* ================= VIEWS ================= */
+const V={};
+V.dash=()=>{const A=S.apps.filter(vis).filter(a=>a.status==="Active").map(a=>({a,...appInfo(a)}));
+const cnt=[0,0,0,0];A.forEach(x=>cnt[x.l-1]++);const regs=R().reg?[R().reg]:Object.keys(REG);const stgs=["Scrutiny","EVC","SAC/SHC","Decision"];
+const age=[0,0,0,0];A.forEach(x=>age[x.age<=7?0:x.age<=15?1:x.age<=30?2:3]++);const amax=Math.max(1,...age);
+const wl={};A.forEach(x=>wl[x.a.officer]=(wl[x.a.officer]||0)+1);
+const bott={};A.filter(x=>x.l>=3).forEach(x=>{const k=curStage(x.a)+" · "+x.a.reg;bott[k]=(bott[k]||0)+1});const top=Object.entries(bott).sort((a,b)=>b[1]-a[1])[0];
+const exp=S.docs.filter(vis).filter(x=>x.exp-S.today<=90).length,und=S.und.filter(vis).filter(u=>u.st!=="Verified"&&u.due-S.today<=15).length;
+return journey6()+`<h1>${role.startsWith("Competent")?"Competent authority dashboard":role.startsWith("Bureau")?"Bureau dashboard · all regions":"Regional dashboard · "+(R().reg||"")}</h1><p class="sub">Live from the workflow engine. Move the date with +1 / +7 days to watch alerts and escalations fire.</p>
+<div class="grid g5"><div class="card"><div class="muted">Active applications</div><div class="kpi">${A.length}</div></div><div class="card"><div class="muted">Due soon</div><div class="kpi" style="color:var(--l2)">${cnt[1]}</div></div><div class="card"><div class="muted">Overdue / escalated</div><div class="kpi" style="color:var(--l4)">${cnt[2]+cnt[3]}</div></div><div class="card"><div class="muted">Docs expiring ≤90 d</div><div class="kpi" style="color:var(--l3)">${exp}</div></div><div class="card"><div class="muted">Undertakings due ≤15 d</div><div class="kpi">${und}</div></div></div>
+<div class="ai" style="margin-bottom:14px">🤖 <b>AI insight:</b> ${top?`Bottleneck at <b>${top[0]}</b> (${top[1]} overdue). Suggest reassigning or adding an EVC panel.`:"No bottleneck right now; all stages within timelines."}</div>
+<div class="grid g2"><div class="card"><h3>Stage-wise pendency by Region</h3><table class="heat"><tr><th>Region</th>${stgs.map(s=>`<th style="text-align:center">${s}</th>`).join("")}</tr>${regs.map(r=>`<tr><td style="text-align:left">${r}</td>${stgs.map(s=>{const xs=A.filter(x=>x.a.reg===r&&curStage(x.a)===s);const mx=xs.reduce((m,x)=>Math.max(m,x.l),0);const bg=["#F4F7FB","#E1F2EA","#FFF4D6","#FBEBD9","#F8E1E4"][mx];return `<td style="background:${bg}">${xs.length||"·"}</td>`}).join("")}</tr>`).join("")}</table><p class="muted">Cell colour = worst alert level in that cell.</p></div>
+<div class="card"><h3>Application ageing</h3>${["0-7 days","8-15 days","16-30 days",">30 days"].map((b,i)=>`<div style="display:flex;gap:8px;align-items:center;margin:7px 0"><span style="width:80px" class="muted">${b}</span><div class="bar" style="flex:1;height:12px"><b style="width:${age[i]/amax*100}%;background:${["#2E7D5B","#E3B505","#C46A12","#B23A48"][i]}"></b></div><b>${age[i]}</b></div>`).join("")}
+<h3 style="margin-top:14px">Workload by officer</h3>${Object.entries(wl).map(([o,v])=>`<span class="pill" style="background:var(--sky);color:var(--blue);margin:2px;display:inline-block">${o}: ${v}</span>`).join("")}</div></div>
+<div class="grid g2"><div class="card"><h3>Institution threat levels (AI)</h3>${[4,3,2,1].map(l=>{const xs=S.insts.filter(vis).filter(i=>i.threat===l);return `<div style="display:flex;gap:8px;align-items:center;margin:6px 0">${tchip(l)}<b>${xs.length}</b><span class="muted">${xs.slice(0,3).map(i=>i.name).join(", ")}</span></div>`}).join("")}<button class="btn s ghost" onclick="go('risk')">Open threat &amp; watchlist</button></div>
+<div class="card"><h3>Open complaints by threat</h3>${[4,3,2,1].map(l=>{const n=S.cmps.filter(vis).filter(c=>c.threat===l&&c.status!=="Closed").length;return `<div style="display:flex;gap:8px;align-items:center;margin:6px 0">${tchip(l)}<div class="bar" style="flex:1;height:10px"><b style="width:${Math.min(100,n*20)}%;background:${["#2E7D5B","#E3B505","#C46A12","#B23A48"][l-1]}"></b></div><b>${n}</b></div>`}).join("")}<p class="muted">${S.cmps.filter(vis).filter(c=>c.hostel&&c.status!=="Closed").length} open complaint(s) from hostel / PG residents get priority.</p></div></div>
+<div class="card"><h3>Alert levels (colour grading)</h3><div class="grid g4">${[1,2,3,4].map(l=>`<div>${chip(l,"app")}<div class="muted" style="margin-top:4px">${["more than 5 days left","0-5 days left: reminder to officer","overdue up to 7 days: Regional Director","overdue >7 days: Bureau Head + competent authority"][l-1]}</div><div class="kpi" style="font-size:20px">${cnt[l-1]}</div></div>`).join("")}</div></div>`};
+V.apps=()=>{const A=S.apps.filter(vis).map(a=>({a,...appInfo(a)})).sort((x,y)=>y.l-x.l||x.left-y.left);
+return `<h1>Applications</h1><p class="sub">Routed automatically by application type. Click a row to act; every action is written to the audit trail.</p>
+<div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution</th><th>Type → route</th><th>Stage pipeline</th><th>Days in stage</th><th>Due</th><th>Level</th></tr>
+${A.map(x=>`<tr class="click" onclick="openApp('${x.a.id}')"><td><b>${x.a.id}</b><div class="muted">${x.a.reg}</div></td><td>${x.a.inst}</td><td>${x.a.type}<div class="muted">${x.a.route}</div></td><td>${pipe(x.a)}</td><td>${x.a.status==="Active"?x.age:"—"}</td><td>${x.a.status==="Active"?fmt(x.due):x.a.status}</td><td>${x.a.status==="Active"?chip(x.l,"app"):'<span class="lv L1"><i></i>Closed</span>'}</td></tr>`).join("")}</table></div>`};
+function pipe(a){return `<div class="pipe">${stages(a).map((s,i)=>`<span class="st ${i<a.si||a.status!=="Active"?"done":i===a.si?"cur":""}">${s}${i===a.si&&a.ret&&s==="Scrutiny"?" (re)":""}</span>`).join("›")}</div>`}
+window.openApp=id=>{const a=S.apps.find(x=>x.id===id),i=appInfo(a),d=$("#drawer");const can=!R().inst&&!role.startsWith("Competent")&&a.status==="Active";
+d.innerHTML=`<button class="btn ghost s" onclick="closeD()">✕ Close</button><h2 style="margin:12px 0 2px">${a.id}</h2><div class="muted">${a.inst} · ${a.reg} RO · officer ${a.officer}</div>
+<div style="margin:10px 0">${pipe(a)}</div><div>${a.status==="Active"?chip(i.l,"app")+` <span class="muted">${curStage(a)} · day ${i.age} of ${slaOf(a)} · due ${fmt(i.due)}</span>`:"<b>"+a.status+"</b>"}</div>
+<div class="ai" style="margin-top:12px">🤖 <b>AI case summary</b><br>${summary(a)}</div>
+${can?`<h3 style="margin-top:14px">Actions</h3><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn green s" onclick="complete('${id}')">✔ Complete ${curStage(a)} → auto-advance</button><button class="btn orange s" onclick="revertUI('${id}')">↩ Return / revert</button><button class="btn ghost s" onclick="letter('${id}')">✉ Standard letter</button></div><div id="act" style="margin-top:10px"></div>`:""}
+<h3 style="margin-top:14px">Audit trail</h3><div class="tl">${S.audit.filter(e=>e.ref===id).map(e=>`<div><b>${e.action}</b> · ${fmt(e.t)} · ${e.actor}<br><span class="muted">${e.detail}</span></div>`).join("")||'<span class="muted">No events yet</span>'}</div>
+<p class="muted" style="margin-top:10px">Regulatory safeguard: automation routes and reminds; scrutiny, EVC findings and approval decisions remain with the competent authority.</p>`;d.classList.add("open")};
+window.closeD=()=>$("#drawer").classList.remove("open");
+function summary(a){const st=curStage(a),i=appInfo(a);const u=S.und.filter(x=>x.inst===a.inst&&x.st!=="Verified"),dc=S.docs.filter(x=>x.inst===a.inst&&x.exp-S.today<=90);
+return `${a.type} for ${a.inst}, routed as “${a.route}”. Currently at <b>${st}</b>${a.ret?` after ${a.ret} return(s)`:""}, ${i.left>=0?i.left+" day(s) left":"<b>"+(-i.left)+" day(s) overdue</b>"}. ${u.length?u.length+" open undertaking(s). ":""}${dc.length?dc.map(x=>x.type+" expiring "+fmt(x.exp)).join("; ")+". ":""}${st==="EVC"?(a.evc&&a.evc.date?"EVC scheduled "+fmt(a.evc.date)+".":"EVC not yet scheduled."):""}`}
+window.complete=id=>{const a=S.apps.find(x=>x.id===id),st=curStage(a);if(st==="EVC"&&!(a.evc&&a.evc.report)){toast("EVC report with geo-tagged photos is required first (see EVC scheduling)");return}
+log(role,"STAGE_COMPLETED",id,st+" completed");if(a.si<stages(a).length-1){a.si++;a.start=S.today;a.notified=0;a.ret=st==="Scrutiny"?a.ret:a.ret;log("Engine","AUTO_ROUTED",id,"Moved to "+curStage(a)+" per rule “"+a.route+"”");notify(a.inst+" (principal)","Email + SMS",id,"Your application moved to "+curStage(a))}
+else{a.status="Decision recorded (competent authority)";log(role,"DECISION_RECORDED",id,"Final decision recorded; case closed")}
+engine(true);openApp(id);render();toast(st+" completed → "+(a.status==="Active"?curStage(a):"closed"))};
+window.revertUI=id=>{$("#act").innerHTML=`<div class="card"><b>Return / revert with reason</b><div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><select id="rto"><option value="inst">Return to institution (deficiency)</option><option value="prev">Revert to previous stage</option></select><select id="rwhy"><option>Deficiency in documents</option><option>Clarification required</option><option>Further verification required</option></select></div><textarea id="rtxt" rows="2" style="width:100%;margin-top:6px" placeholder="Remarks (mandatory)"></textarea><button class="btn orange s" style="margin-top:6px" onclick="revert('${id}')">Confirm</button></div>`};
+window.revert=id=>{const a=S.apps.find(x=>x.id===id),t=$("#rtxt").value.trim();if(!t){toast("Reason is mandatory");return}const to=$("#rto").value,why=$("#rwhy").value;
+if(to==="prev"&&a.si>0)a.si--;a.ret++;a.start=S.today;a.notified=0;log(role,"RETURNED",id,(to==="prev"?"Reverted to "+curStage(a):"Returned to institution")+" · "+why+" · "+t);notify(a.inst+" (principal)","Email + SMS",id,why+": "+t);engine(true);openApp(id);render();toast("Returned with reason recorded")};
+window.letter=id=>{const a=S.apps.find(x=>x.id===id);$("#act").innerHTML=`<div class="preview"><b>AI draft · standard communication (officer reviews before sending)</b>\nTo: The Principal, ${a.inst}\nSubject: Status of application ${a.id} (${a.type})\nYour application is at the ${curStage(a)} stage. ${S.und.filter(x=>x.inst===a.inst&&x.st!=="Verified").map(u=>"Open undertaking "+u.id+": "+u.cond+" (due "+fmt(u.due)+").").join(" ")}\nPlease log in to the portal for details.\n— ${a.officer}, AICTE ${a.reg} Regional Office</div><button class="btn s" style="margin-top:6px" onclick="sendL('${id}')">Approve &amp; send</button>`};
+window.sendL=id=>{const a=S.apps.find(x=>x.id===id);notify(a.inst+" (principal)","Email",id,"Standard status letter");log(role,"LETTER_SENT",id,"Standard communication sent after officer review");toast("Letter sent and logged");openApp(id)};
+/* ---------- EVC ---------- */
+V.evc=()=>{const ex=R().expert;const Q=S.apps.filter(vis).filter(a=>a.status==="Active"&&curStage(a)==="EVC").filter(a=>!ex||(a.evc&&a.evc.panel.includes(ex)));
+return `<h1>${ex?"My EVC visits":"EVC scheduling"}</h1><p class="sub">${ex?"Capture geo-tagged photos on site. The system checks location, time and duplicates before the report is accepted.":"Applications enter this queue automatically once preliminary processing is complete. New institutions get a shorter EVC timeline."}</p>
+<div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution</th><th>New?</th><th>Scheduled</th><th>Panel</th><th>Photos</th><th>Level</th><th></th></tr>
+${Q.map(a=>{const i=appInfo(a),e=a.evc||{};return `<tr><td><b>${a.id}</b><div class="muted">${a.reg}</div></td><td>${a.inst}</td><td>${a.isNew?"Yes (21 d)":"No (30 d)"}</td><td>${e.date?fmt(e.date):'<span class="warn">Not scheduled</span>'}</td><td class="muted">${(e.panel||[]).join(", ")||"—"}</td><td>${(e.photos||[]).length}</td><td>${chip(i.l,"app")}</td><td>${ex?`<button class="btn s" onclick="visit('${a.id}')">Open visit</button>`:`<button class="btn s ghost" onclick="sched('${a.id}')">${e.date?"Reschedule":"Schedule"}</button> <button class="btn s" onclick="visit('${a.id}')">Visit</button>`}</td></tr>`}).join("")||'<tr><td colspan="8" class="muted">No applications in EVC stage.</td></tr>'}</table></div>${ex?"":`<button class="btn" onclick="autoAll()">🤖 Let AI schedule all unscheduled EVCs</button> <span class="muted">Officer still confirms each one in the audit trail.</span>`}<div id="evcp"></div>`};
+window.autoAll=()=>{const Q=S.apps.filter(vis).filter(a=>a.status==="Active"&&curStage(a)==="EVC"&&!(a.evc&&a.evc.date));Q.forEach(a=>doSched(a.id,true));toast(Q.length?Q.length+" EVC(s) scheduled by AI":"Nothing to schedule")};
+/* AI EVC scheduler: ranks experts by region, workload, date clash and conflict of interest */
+function expertLoad(n){return S.apps.filter(a=>a.status==="Active"&&a.evc&&a.evc.panel.includes(n)&&a.evc.date&&a.evc.date>=S.today).length}
+function busyOn(n,day){return S.apps.some(a=>a.evc&&a.evc.panel.includes(n)&&a.evc.date&&Math.abs(a.evc.date-day)<1)}
+function aiPanel(a){const lim=a.isNew?S.rules.sla["EVC (new institution)"]:S.rules.sla["EVC"],due=a.start+lim;
+ const ranked=EXPERTS.map(e=>{let sc=50,why=[];if(e.r===a.reg){sc+=25;why.push("same region")}else{sc-=10;why.push("other region (travel)")}
+  const L=expertLoad(e.n);sc-=L*8;why.push(L+" upcoming visit(s)");if(e.home===a.inst){sc=-99;why.push("conflict of interest")}
+  if(e.spec&&a.inst.match(e.spec)){sc+=12;why.push("domain match")}return{...e,sc,why}}).sort((x,y)=>y.sc-x.sc);
+ const panel=ranked.filter(e=>e.sc>0).slice(0,2);let day=Math.max(S.today+3,S.today+1);while(day<due&&panel.some(p=>busyOn(p.n,day)||new Date(day*864e5).getUTCDay()===0))day++;
+ return{ranked,panel,day,due}}
+window.sched=id=>{const a=S.apps.find(x=>x.id===id),p=aiPanel(a);
+$("#evcp").innerHTML=`<div class="card"><h3>🤖 AI EVC scheduler · ${a.id}</h3>
+<div class="ai">Suggested: <b>${fmt(p.day)}</b> with <b>${p.panel.map(x=>x.n).join(" and ")}</b>. ${p.day<=p.due?`Inside the ${a.isNew?"new-institution ":""}EVC deadline of ${fmt(p.due)}`:`<span class="bad">EVC deadline ${fmt(p.due)} already missed: earliest slot shown, case escalated</span>`}, no clash with other visits, Sundays skipped, no conflict of interest.</div>
+<table style="margin-top:10px"><tr><th>Expert</th><th>Score</th><th>Why</th></tr>${p.ranked.map(e=>`<tr><td>${p.panel.includes(e)?"✅ ":""}${e.n}</td><td><b>${e.sc}</b></td><td class="muted">${e.why.join(" · ")}</td></tr>`).join("")}</table>
+<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><input type="date" id="evd" value="${new Date(p.day*864e5).toISOString().slice(0,10)}"><button class="btn" onclick="doSched('${id}')">Confirm (officer decision)</button></div></div>`};
+window.doSched=(id,auto)=>{const a=S.apps.find(x=>x.id===id),p=aiPanel(a);const v=auto?p.day:Math.round(Date.parse($("#evd").value)/864e5);a.evc=a.evc||{photos:[],report:null,check:{}};a.evc.date=v;a.evc.panel=p.panel.map(x=>x.n);
+log(role,"EVC_SCHEDULED",id,"EVC on "+fmt(v)+" · panel: "+a.evc.panel.join(", ")+" (AI-suggested, officer confirmed)");notify(a.inst+" (principal)","Email + SMS",id,"EVC visit scheduled on "+fmt(v));a.evc.panel.forEach(n=>notify(n,"Email + SMS + calendar invite",id,"EVC assignment on "+fmt(v)));render();toast("EVC scheduled; institution and panel notified");return v};
+/* Inspection checklist (APH-style norms). AI pre-fills from photo tags; the expert confirms every item */
+const CHECK=[["Classrooms","Classroom","Adequate number and size of classrooms"],["Laboratories","Laboratory","Labs equipped as per programme"],["Library","Library","Library with titles, journals and e-access"],["Computer centre","Computer centre","Computers and internet as per intake"],["Fire safety","Fire safety","Extinguishers, exits, fire NOC displayed"],["Structural safety","Building exterior","No visible cracks; stability certificate valid"],["Accessibility","Ramp / lift","Ramps, lifts and accessible toilets"],["Toilets & water","Toilets","Separate toilets, drinking water"]];
+const CAMPUS={lat:18.5204,lng:73.8567};
+window.visit=id=>{const a=S.apps.find(x=>x.id===id);a.evc=a.evc||{date:null,panel:[],photos:[],report:null};a.evc.check=a.evc.check||{};
+$("#evcp").innerHTML=`<div class="card"><h3>EVC inspection · ${a.id} · ${a.inst}</h3><p class="muted">Capture photos on site. AnuSahayak reads the photo's EXIF GPS and time, checks it is on campus, catches duplicates and blurry or dark shots, tags what it shows and pre-fills the checklist. The expert confirms every item.</p>
+<label class="btn" style="display:inline-block">📷 Capture / upload photos<input type="file" accept="image/*" capture="environment" multiple style="display:none" onchange="photos('${id}',this.files)"></label>
+<button class="btn ghost" onclick="demoPhoto('${id}')">Add demo photo</button><div class="thumbs" id="th" style="margin-top:12px"></div>
+<h3 style="margin-top:14px">Inspection checklist</h3><div id="chk"></div>
+<div class="ai" id="insum" style="margin-top:10px"></div>
+<div style="margin-top:12px"><select id="evres"><option>Infrastructure as per norms</option><option>Minor deficiencies noted</option><option>Major deficiencies noted</option></select> <button class="btn green" onclick="evcReport('${id}')">Submit EVC report</button></div></div>`;drawThumbs(a)};
+function drawThumbs(a){$("#th").innerHTML=a.evc.photos.map(p=>`<div class="thumb"><img src="${p.src||""}" alt=""><div><b>${p.tag}</b><br>📍 ${p.geo}<br>🕒 ${p.time}<br>${p.flags.length?p.flags.map(f=>`<span class="${/crack/.test(f)?"bad":"warn"}">⚠ ${f}</span>`).join("<br>"):'<span class="ok">✔ checks passed</span>'}</div></div>`).join("");drawCheck(a)}
+function drawCheck(a){const tags=a.evc.photos.filter(p=>!p.flags.some(f=>/duplicate|outside/.test(f))).map(p=>p.tag);const ck=a.evc.check;
+$("#chk").innerHTML=`<table><tr><th>Item</th><th>Norm</th><th>AI evidence</th><th>Expert</th></tr>${CHECK.map(([k,t,n])=>{const ph=tags.filter(x=>x.includes(t)).length,crack=k==="Structural safety"&&a.evc.photos.some(p=>p.flags.some(f=>/crack/.test(f)));
+return `<tr><td><b>${k}</b></td><td class="muted">${n}</td><td>${crack?'<span class="bad">⚠ possible crack</span>':ph?`<span class="ok">✔ ${ph} photo(s)</span>`:'<span class="muted">no photo yet</span>'}</td><td><select onchange="setChk('${a.id}','${k}',this.value)">${["—","Meets norm","Deficient","Not applicable"].map(o=>`<option ${ck[k]===o?"selected":""}>${o}</option>`).join("")}</select></td></tr>`}).join("")}</table>`;
+const done=Object.values(ck).filter(v=>v!=="—").length,def=Object.entries(ck).filter(e=>e[1]==="Deficient").map(e=>e[0]),cr=a.evc.photos.some(p=>p.flags.some(f=>/crack/.test(f)));
+$("#insum").innerHTML=`🤖 <b>AI inspection summary (draft):</b> ${a.evc.photos.length} photo(s), ${a.evc.photos.filter(p=>p.flags.length).length} flagged. Checklist ${done}/${CHECK.length} confirmed by expert.${def.length?" Deficient: "+def.join(", ")+".":""}${cr?" <b>Possible structural crack seen: recommend a fresh structural stability certificate before approval.</b>":""}`}
+window.setChk=(id,k,v)=>{const a=S.apps.find(x=>x.id===id);a.evc.check[k]=v;log(role,"CHECKLIST",id,k+": "+v);save();drawCheck(a)};
+/* --- photo intelligence: EXIF reader, perceptual hash, blur/dark check --- */
+function exif(buf){try{const v=new DataView(buf);if(v.getUint16(0)!==0xFFD8)return{};let o=2;while(o<v.byteLength){const m=v.getUint16(o);if(m===0xFFE1){const s=o+10;const le=v.getUint16(s)===0x4949;const g16=p=>v.getUint16(p,le),g32=p=>v.getUint32(p,le);
+ const ifd=(p)=>{const n=g16(p),t={};for(let i=0;i<n;i++){const e=p+2+i*12;t[g16(e)]={type:g16(e+2),cnt:g32(e+4),off:e+8}}return t};
+ const str=e=>{const p=e.cnt>4?s+g32(e.off):e.off;let r="";for(let i=0;i<e.cnt-1;i++)r+=String.fromCharCode(v.getUint8(p+i));return r};
+ const rat=(e)=>{const p=s+g32(e.off);const a=[];for(let i=0;i<3;i++)a.push(g32(p+i*8)/g32(p+i*8+4));return a[0]+a[1]/60+a[2]/3600};
+ const t0=ifd(s+g32(s+4)),out={};if(t0[0x8769]){const ex=ifd(s+g32(t0[0x8769].off));if(ex[0x9003])out.time=str(ex[0x9003])}
+ if(t0[0x8825]){const gp=ifd(s+g32(t0[0x8825].off));if(gp[2]&&gp[4]){out.lat=rat(gp[2])*(str(gp[1])==="S"?-1:1);out.lng=rat(gp[4])*(str(gp[3])==="W"?-1:1)}}return out}o+=2+v.getUint16(o+2)}}catch(e){}return{}}
+function imgStats(src){return new Promise(r=>{const im=new Image();im.onload=()=>{const c=document.createElement("canvas");c.width=64;c.height=64;const x=c.getContext("2d");x.drawImage(im,0,0,64,64);const d=x.getImageData(0,0,64,64).data,g=[];for(let i=0;i<d.length;i+=4)g.push(.3*d[i]+.59*d[i+1]+.11*d[i+2]);
+ const mean=g.reduce((s,v)=>s+v,0)/g.length;let lap=0;for(let y=1;y<63;y++)for(let x2=1;x2<63;x2++){const i=y*64+x2;const l=4*g[i]-g[i-1]-g[i+1]-g[i-64]-g[i+64];lap+=l*l}lap/=62*62;
+ const c8=document.createElement("canvas");c8.width=8;c8.height=8;const x8=c8.getContext("2d");x8.drawImage(im,0,0,8,8);const d8=x8.getImageData(0,0,8,8).data,g8=[];for(let i=0;i<d8.length;i+=4)g8.push(d8[i]+d8[i+1]+d8[i+2]);const m8=g8.reduce((s,v)=>s+v,0)/64;
+ let cr=0,cg=0,cb=0;for(let i=0;i<d.length;i+=4){cr+=d[i];cg+=d[i+1];cb+=d[i+2]}const q=4096;r({mean,lap,ah:g8.map(v=>v>m8?1:0).join("")+":"+[cr/q,cg/q,cb/q].map(Math.round).join(",")})};im.onerror=()=>r(null);im.src=src})}
+function ham(a,b){let n=0;for(let i=0;i<a.length;i++)if(a[i]!==b[i])n++;return n}
+function geo(){return new Promise(r=>{if(!navigator.geolocation)return r(null);navigator.geolocation.getCurrentPosition(p=>r({lat:p.coords.latitude,lng:p.coords.longitude}),()=>r(null),{timeout:4000})})}
+function km(a,b){const R=6371,dl=(b.lat-a.lat)*Math.PI/180,dg=(b.lng-a.lng)*Math.PI/180;const x=Math.sin(dl/2)**2+Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dg/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
+const TAGS=["Classroom","Laboratory","Library","Building exterior","Computer centre","Fire safety","Ramp / lift","Toilets"];
+async function analyse(a,src,meta){const st=await imgStats(src),flags=[];S.hashes=S.hashes||[];
+ if(st){if(S.hashes.some(h=>{const[x,m]=h.split(":"),[y,n]=st.ah.split(":");const A=m.split(",").map(Number),B=n.split(",").map(Number);return ham(x,y)<=4&&A.reduce((t,v,i)=>t+Math.abs(v-B[i]),0)<9}))flags.push("duplicate / near-duplicate of an earlier photo");S.hashes.push(st.ah);if(st.mean<45)flags.push("too dark to verify");if(st.lap<12)flags.push("blurry, retake")}
+ let loc=meta.lat!=null?{lat:meta.lat,lng:meta.lng}:meta.dev,src2=meta.lat!=null?"EXIF GPS":meta.dev?"device GPS":null,geoTxt="no GPS in photo";
+ if(loc){const d=km(loc,CAMPUS);geoTxt=`${loc.lat.toFixed(4)}, ${loc.lng.toFixed(4)} (${src2}) · ${d.toFixed(1)} km from campus`;if(d>0.5)flags.push("taken outside campus radius (0.5 km)")}else flags.push("no location: expert must confirm");
+ if(meta.ageDays>3)flags.push("photo older than the visit window");if(meta.crack)flags.push("possible structural crack (AI)");return{src:src.length<1.5e6?src:"",tag:"AI tag: "+meta.tag,geo:geoTxt,time:meta.time,flags}}
+window.photos=async(id,files)=>{const a=S.apps.find(x=>x.id===id);const dev=await geo();
+for(const f of files){const buf=await f.arrayBuffer(),ex=exif(buf);const src=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(f)});
+ const h=fnv(f.name+f.size);const t=ex.time||new Date(f.lastModified).toLocaleString("en-GB");const p=await analyse(a,src,{...ex,dev,tag:TAGS[parseInt(h.slice(0,2),16)%TAGS.length],time:t+(ex.time?" (EXIF)":""),ageDays:(Date.now()-f.lastModified)/864e5});
+ a.evc.photos.push(p);log(role,"EVC_PHOTO",id,p.tag+(p.flags.length?" · flags: "+p.flags.join("; "):" · checks passed"))}save();drawThumbs(a)};
+const DEMO=[["Laboratory","Lab 2 · Block A","#cfe0f3"],["Library","Central library","#e8dcc6"],["Classroom","Classroom 104","#d6ead8"],["Building exterior","Block B · east wall","#d9d4cc"],["Laboratory","Lab 2 · Block A","#cfe0f3"],["Fire safety","Fire exit · G floor","#f3d6cf"]];
+window.demoPhoto=async id=>{const a=S.apps.find(x=>x.id===id);const n=a.evc.photos.length%DEMO.length,[tag,lbl,bg]=DEMO[n];const c=document.createElement("canvas");c.width=300;c.height=200;const x=c.getContext("2d");x.fillStyle=bg;x.fillRect(0,0,300,200);
+ x.strokeStyle="#14213D22";for(let i=0;i<300;i+=25){x.beginPath();x.moveTo(i,0);x.lineTo(i,200);x.stroke()}x.fillStyle="#14213D";x.font="bold 22px sans-serif";x.fillText(lbl,20,105);x.font="13px sans-serif";x.fillText(fmt(S.today)+" · 11:2"+n,20,130);
+ const crack=tag==="Building exterior";if(crack){x.strokeStyle="#5a3e2b";x.lineWidth=3;x.beginPath();x.moveTo(200,10);x.lineTo(215,60);x.lineTo(205,95);x.lineTo(230,150);x.lineTo(222,195);x.stroke()}
+ const p=await analyse(a,c.toDataURL(),{lat:18.5206,lng:73.8569,tag,time:fmt(S.today)+" 11:2"+n+" (EXIF)",ageDays:0,crack});a.evc.photos.push(p);log(role,"EVC_PHOTO",id,"Demo · "+p.tag+(p.flags.length?" · flags: "+p.flags.join("; "):" · checks passed"));save();drawThumbs(a)};
+window.evcReport=id=>{const a=S.apps.find(x=>x.id===id);if(a.evc.photos.filter(p=>!p.flags.some(f=>/duplicate|outside/.test(f))).length<2){toast("At least 2 valid geo-tagged photos are required");return}
+ if(Object.values(a.evc.check||{}).filter(v=>v!=="—").length<4){toast("Expert must confirm at least 4 checklist items");return}
+ const flagged=a.evc.photos.filter(p=>p.flags.length).length,cr=a.evc.photos.some(p=>p.flags.some(f=>/crack/.test(f)));a.evc.report={res:$("#evres").value,flagged};
+ log(role,"EVC_REPORT",id,$("#evres").value+" · "+a.evc.photos.length+" photos · "+flagged+" flagged");
+ if(cr){S.und.push({id:"UT-"+(400+S.und.length),inst:a.inst,reg:a.reg,cond:"Submit fresh structural stability certificate (crack seen during EVC)",due:S.today+30,st:"Pending",ev:null,notified:0});log("Engine","UNDERTAKING_CREATED",id,"Structural stability certificate within 30 days");notify(a.inst+" (principal)","Email + SMS",id,"Undertaking: submit structural stability certificate within 30 days")}
+ if(!R().expert){complete(id)}else{a.si++;a.start=S.today;a.notified=0;log("Engine","AUTO_ROUTED",id,"EVC report received → moved to "+curStage(a));engine(true);render();toast("EVC report submitted → auto-routed to "+curStage(a))}};
+/* ---------- undertakings ---------- */
+V.und=()=>{const U=S.und.filter(vis).sort((a,b)=>a.due-b.due);const inst=R().inst;
+return `<h1>Time-bound undertakings</h1><p class="sub">Conditions attached to approvals, with due dates, evidence and verification. Reminders and escalation are automatic.</p>
+<div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution</th><th>Condition</th><th>Due</th><th>Status</th><th>Level</th><th></th></tr>
+${U.map(u=>{const l=u.st==="Verified"?1:lvl(u.due-S.today,"und");return `<tr><td><b>${u.id}</b></td><td>${u.inst}</td><td>${u.cond}</td><td>${fmt(u.due)}<div class="muted">${u.due-S.today>=0?u.due-S.today+" days left":-(u.due-S.today)+" days overdue"}</div></td><td>${u.st}${u.ev?`<div class="muted">📎 ${u.ev}</div>`:""}</td><td>${u.st==="Verified"?'<span class="lv L1"><i></i>Verified</span>':chip(l,"und")}</td>
+<td>${inst&&u.st!=="Verified"?`<label class="btn s">Upload evidence<input type="file" style="display:none" onchange="ev('${u.id}',this.files[0])"></label>`:""}${!inst&&u.st==="Submitted"&&!role.startsWith("Competent")?`<button class="btn green s" onclick="ver('${u.id}',1)">Verify</button> <button class="btn red s" onclick="ver('${u.id}',0)">Reject</button>`:""}</td></tr>`}).join("")}</table></div>`};
+window.ev=(id,f)=>{const u=S.und.find(x=>x.id===id);u.st="Submitted";u.ev=f?f.name:"evidence.pdf";log(role,"EVIDENCE_SUBMITTED",id,u.ev);notify(OFF[u.reg]+" (case officer)","In-app",id,"Evidence submitted for verification");render();toast("Evidence submitted; officer notified")};
+window.ver=(id,ok)=>{const u=S.und.find(x=>x.id===id);if(ok){u.st="Verified";log(role,"EVIDENCE_VERIFIED",id,"Undertaking fulfilled")}else{const r="Document not legible or incomplete";u.st="Pending";u.ev=null;log(role,"EVIDENCE_REJECTED",id,r||"Rejected");notify(u.inst+" (principal)","Email + SMS",id,"Evidence rejected: "+(r||""))}save();render()};
+/* ---------- documents ---------- */
+V.docs=()=>{const D=S.docs.filter(vis).sort((a,b)=>a.exp-b.exp);const inst=R().inst;
+return `<h1>Lease &amp; document validity</h1><p class="sub">Advance alerts at T-90 and T-30 days, overdue alert on expiry. OCR reads the new expiry date from uploaded renewals.</p>
+<div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution</th><th>Document</th><th>Valid till</th><th>Status</th><th>Level</th><th></th></tr>
+${D.map(x=>{const l=lvl(x.exp-S.today,"doc");return `<tr><td><b>${x.id}</b></td><td>${x.inst}</td><td>${x.type}</td><td>${fmt(x.exp)}<div class="muted">${x.exp-S.today>=0?x.exp-S.today+" days left":"expired "+(S.today-x.exp)+" days ago"}</div></td><td>${x.st}${x.newExp?`<div class="muted">OCR: new expiry ${fmt(x.newExp)}</div>`:""}</td><td>${chip(l,"doc")}</td>
+<td>${inst?`<label class="btn s">Upload renewal<input type="file" style="display:none" onchange="ren('${x.id}',this.files[0])"></label>`:""}${!inst&&x.st==="Renewal submitted"&&!role.startsWith("Competent")?`<button class="btn green s" onclick="dver('${x.id}')">Verify renewal</button>`:""}</td></tr>`}).join("")}</table></div>
+<div class="card"><h3>How OCR reads the expiry date</h3><div class="pipe"><span class="st done">Upload PDF / photo</span>›<span class="st done">OCR (Tesseract)</span>›<span class="st done">Find “valid till / period of lease”</span>›<span class="st done">Parse date</span>›<span class="st cur">Officer verifies</span></div></div>`};
+window.ren=(id,f)=>{const x=S.docs.find(d=>d.id===id);const m=(f&&f.name.match(/(20\d\d)/));const yr=m?parseInt(m[1]):null;x.newExp=yr&&yr>2026?Date.UTC(yr,2,31)/864e5:S.today+3*365;x.st="Renewal submitted";
+log(role,"RENEWAL_SUBMITTED",id,(f?f.name:"renewal.pdf")+" · OCR expiry "+fmt(x.newExp));notify(OFF[x.reg]+" (case officer)","In-app",id,"Renewed "+x.type+" submitted");render();toast("Uploaded. OCR found expiry "+fmt(x.newExp))};
+window.dver=id=>{const x=S.docs.find(d=>d.id===id);x.exp=x.newExp;x.st="Renewal verified";x.notified=0;log(role,"RENEWAL_VERIFIED",id,"Valid till "+fmt(x.exp));engine(true);render()};
+/* ---------- alerts ---------- */
+V.alerts=()=>{const items=[...S.apps.filter(vis).filter(a=>a.status==="Active").map(a=>{const i=appInfo(a);return{ref:a.id,inst:a.inst,what:curStage(a)+" stage",l:i.l,k:"app",d:i.left}}),
+...S.und.filter(vis).filter(u=>u.st!=="Verified").map(u=>({ref:u.id,inst:u.inst,what:"Undertaking",l:lvl(u.due-S.today,"und"),k:"und",d:u.due-S.today})),
+...S.docs.filter(vis).map(x=>({ref:x.id,inst:x.inst,what:x.type,l:lvl(x.exp-S.today,"doc"),k:"doc",d:x.exp-S.today}))].filter(x=>x.l>=2).sort((a,b)=>b.l-a.l);
+return `<h1>Alerts &amp; escalation</h1><p class="sub">Generated by rules, not by hand. Each level goes one step up the ladder.</p>
+<div class="card"><h3>Escalation ladder</h3><div class="ladder">${S.rules.ladder.map((s,i)=>`<span class="L${i+1}">${s}</span>${i<3?"→":""}`).join("")}</div></div>
+<div class="grid g2"><div class="card" style="overflow:auto"><h3>Active alerts (${items.length})</h3><table><tr><th>Ref</th><th>Item</th><th>Days</th><th>Level</th></tr>${items.map(x=>`<tr><td><b>${x.ref}</b><div class="muted">${x.inst}</div></td><td>${x.what}</td><td>${x.d}</td><td>${chip(x.l,x.k)}</td></tr>`).join("")}</table></div>
+<div class="card" style="overflow:auto;max-height:520px"><h3>Notification log</h3>${S.notes.filter(n=>{const r=R();if(!r.reg&&!r.inst)return true;const o=[...S.apps,...S.und,...S.docs].find(x=>x.id===n.ref);return o&&vis(o)}).slice(0,60).map(n=>`<div style="border-bottom:1px solid var(--line2);padding:6px 0"><b>${n.ref}</b> · ${fmt(n.t)} · <span class="muted">${n.ch}</span><br>To ${n.to}: ${n.msg}</div>`).join("")||'<span class="muted">No notifications yet. Move the date forward.</span>'}</div></div>`};
+/* ---------- reports ---------- */
+V.reports=()=>{const rows=Object.keys(REG).map(r=>{const A=S.apps.filter(a=>a.reg===r&&a.status==="Active").map(appInfo);return{r,n:A.length,ov:A.filter(x=>x.l>=3).length,avg:A.length?Math.round(A.reduce((s,x)=>s+x.age,0)/A.length):0,evc:S.apps.filter(a=>a.reg===r&&a.status==="Active"&&curStage(a)==="EVC").length,und:S.und.filter(u=>u.reg===r&&u.st!=="Verified"&&u.due<S.today).length,doc:S.docs.filter(x=>x.reg===r&&x.exp<S.today).length}});
+window._rows=rows;return `<h1>Reports</h1><p class="sub">Region-wise processing performance (consolidated). Download as CSV.</p><div class="card" style="overflow:auto"><table><tr><th>Region</th><th>Pending</th><th>Overdue</th><th>Avg days in stage</th><th>In EVC</th><th>Undertakings overdue</th><th>Docs expired</th></tr>${rows.map(x=>`<tr><td><b>${x.r}</b></td><td>${x.n}</td><td class="${x.ov?"bad":""}">${x.ov}</td><td>${x.avg}</td><td>${x.evc}</td><td>${x.und}</td><td>${x.doc}</td></tr>`).join("")}</table><button class="btn" style="margin-top:10px" onclick="csv()">⬇ Export CSV</button></div>`};
+window.csv=()=>{const h="Region,Pending,Overdue,AvgDays,InEVC,UndertakingsOverdue,DocsExpired\n"+_rows.map(x=>[x.r,x.n,x.ov,x.avg,x.evc,x.und,x.doc].join(",")).join("\n");let t=document.getElementById("csvout");if(!t){t=document.createElement("textarea");t.id="csvout";t.rows=8;t.style.cssText="width:100%;margin-top:10px;font-family:monospace";document.querySelector("#main .card").appendChild(t)}t.value=h;t.select();try{navigator.clipboard.writeText(h).then(()=>toast("CSV copied to clipboard"),()=>toast("CSV shown below; copy it"))}catch(e){toast("CSV shown below; copy it")}log(role,"REPORT_EXPORTED","REPORT","Region-wise CSV downloaded")};
+/* ---------- audit ---------- */
+V.audit=()=>`<h1>Audit trail</h1><p class="sub">Append-only. Each entry stores the hash of the previous one, so any edit breaks the chain.</p>
+<div class="card"><button class="btn" onclick="verify()">🔗 Verify chain</button> <span id="vres" class="muted"></span><input id="af" placeholder="Filter by ID or action" style="margin-left:8px" oninput="render()" value="${window._af||""}"></div>
+<div class="card" style="overflow:auto"><table><tr><th>#</th><th>Date</th><th>Actor</th><th>Action</th><th>Ref</th><th>Detail</th><th>Hash</th></tr>${S.audit.map((e,i)=>({e,i})).reverse().filter(x=>{const f=(window._af||"").toLowerCase();return !f||(x.e.ref+x.e.action).toLowerCase().includes(f)}).slice(0,150).map(({e,i})=>`<tr><td>${i+1}</td><td>${fmt(e.t)}</td><td>${e.actor}</td><td><b>${e.action}</b></td><td>${e.ref}</td><td>${e.detail}</td><td class="muted" style="font-family:monospace">${e.h}</td></tr>`).join("")}</table></div>`;
+window.verify=()=>{let p="00000000",ok=true;for(const e of S.audit){if(e.p!==p||fnv(p+e.t+e.actor+e.action+e.ref+e.detail)!==e.h){ok=false;break}p=e.h}$("#vres").innerHTML=ok?`<span class="ok">✔ Chain intact · ${S.audit.length} entries</span>`:'<span class="bad">✖ Chain broken: tampering detected</span>'};
+/* ---------- rules ---------- */
+V.rules=()=>`<h1>Rules &amp; timelines</h1><p class="sub">Configurable to match the current APH. Changes apply instantly to routing, timers and alerts.</p>
+<div class="grid g2"><div class="card"><h3>Application type → route</h3><table>${Object.entries(S.rules.typeRoute).map(([t,r])=>`<tr><td>${t}</td><td><select onchange="setRoute('${t}',this.value)">${Object.keys(S.rules.routes).map(x=>`<option ${x===r?"selected":""}>${x}</option>`).join("")}</select></td></tr>`).join("")}</table></div>
+<div class="card"><h3>Stage timelines (days)</h3><table>${Object.entries(S.rules.sla).map(([s,v])=>`<tr><td>${s}</td><td><input type="number" value="${v}" style="width:80px" onchange="setSla('${s}',this.value)"></td></tr>`).join("")}</table>
+<h3 style="margin-top:12px">Routes</h3>${Object.entries(S.rules.routes).map(([r,s])=>`<div style="margin:5px 0"><b>${r}</b><div class="pipe">${s.map(x=>`<span class="st">${x}</span>`).join("›")}</div></div>`).join("")}</div></div>`;
+window.setRoute=(t,r)=>{S.rules.typeRoute[t]=r;S.apps.filter(a=>a.type===t&&a.si===0).forEach(a=>a.route=r);log(role,"RULE_CHANGED","RULES",t+" → "+r);save();toast("Route updated")};
+window.setSla=(s,v)=>{S.rules.sla[s]=parseInt(v)||1;log(role,"RULE_CHANGED","RULES",s+" timeline = "+v+" days");S.apps.forEach(a=>a.notified=Math.min(a.notified,1));engine();toast("Timeline updated; alerts recalculated")};
+/* ---------- institution ---------- */
+V.inst=()=>{const r=R(),A=S.apps.filter(vis);return `<h1>${r.inst}</h1><p class="sub">Institution portal: track applications, scan and submit proofs, undertaking evidence and renewed documents.</p>${journey6()}
+${A.map(a=>{const i=appInfo(a);return `<div class="card"><b>${a.id}</b> · ${a.type} ${a.status==="Active"?chip(i.l,"app"):""}<div style="margin:8px 0">${pipe(a)}</div><div class="muted">${a.status==="Active"?`Now at ${curStage(a)}. Expected by ${fmt(i.due)}.`:a.status}</div></div>`}).join("")}
+<div class="grid g2"><div class="card"><h3>Upcoming deadlines</h3>${[...S.und.filter(vis).filter(u=>u.st!=="Verified").map(u=>`<div style="margin:6px 0">${chip(lvl(u.due-S.today,"und"),"und")} ${u.cond} <span class="muted">· ${fmt(u.due)}</span></div>`),...S.docs.filter(vis).map(x=>`<div style="margin:6px 0">${chip(lvl(x.exp-S.today,"doc"),"doc")} ${x.type} <span class="muted">· ${fmt(x.exp)}</span></div>`)].join("")}</div>
+<div class="card"><h3>Ask AnuSahayak</h3><p class="muted">“Which documents are needed?”, “When does my lease expire?”, or tap 🤖 and speak.</p><button class="btn" onclick="toggleChat(true)">Open assistant</button></div></div>`};
+/* ================= AI ASSISTANT ================= */
+let tts=true;window.ttsT=()=>{tts=!tts;$("#ttsb").textContent=tts?"🔊":"🔇"};
+function say(t){if(!tts||!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/<[^>]+>/g,"").replace(/[^\w\s.,:?!()\-/]/g,""));u.lang="en-IN";speechSynthesis.speak(u)}
+function bot(h,ch){const m=document.createElement("div");m.className="m bot";m.innerHTML=h;$("#msgs").appendChild(m);$("#msgs").scrollTop=1e6;$("#chips").innerHTML=(ch||[]).map(c=>`<button class="chip" onclick="ask(this.textContent)">${c}</button>`).join("");say(m.textContent)}
+function me(t){const m=document.createElement("div");m.className="m me";m.textContent=t;$("#msgs").appendChild(m)}
+window.toggleChat=o=>{const c=$("#chat");const open=o===true||!c.classList.contains("open");c.classList.toggle("open",open);if(open&&!$("#msgs").children.length)bot(`Namaste! I'm AnuSahayak. Ask me by typing or tap 🎙️ and speak.\nI can check application status, pendency, EVCs, undertakings and lease expiry, draft summaries, and list new complaints from the complaint site.`,(R().member?["complain: hostel room ceiling has cracks","My complaints"]:["New complaints today","Show threat levels","Hostel and PG safety","Open complaints","What is overdue?","Schedule EVC for APP-27-1102","Inspection checklist"]))};
+window.ask=t=>{const v=(t||$("#inp").value).trim();if(!v)return;$("#inp").value="";me(v);setTimeout(()=>answer(v),300)};
+function answer(q){const s=norm6(q);
+if(/\bscan|proof|fake (document|certificate)/.test(s))return bot("Open “AI proof scanner”, choose what the document is and upload it. I check the official stamp, signature, institution name, validity date, editing software, GPS and time, and whether the same file was already used by another college. An officer confirms the result.");
+if(/\bcall\b|helpline|ivr/.test(s))return bot("Anyone can call AnuSahayak on the AICTE helpline: 1 complaint, 2 status, 3 EVC date, 4 hostel / PG safety, 0 officer call back. Speak or press keys, in Hindi or English. Try “Call AnuSahayak”.");
+if(/undertaking/.test(s)){const u=S.und.filter(vis).filter(x=>x.st!=="Verified");return bot(u.map(x=>`• ${x.id} ${x.inst}: ${x.cond} · due ${fmt(x.due)} (${x.st})`).join("\n")||"No open undertakings.")}const id=(q.match(/APP-\d\d-\d+/i)||[])[0];const A=S.apps.filter(vis).filter(a=>a.status==="Active");
+if(id&&/schedul|evc/.test(s)){const a=S.apps.find(x=>x.id.toLowerCase()===id.toLowerCase());if(!a||curStage(a)!=="EVC")return bot("That application is not in the EVC stage.");const p=aiPanel(a);return bot(`Best slot: ${fmt(p.day)} with ${p.panel.map(x=>x.n).join(" and ")}. Deadline ${fmt(p.due)}.\nSay “confirm ${a.id}” to book it (logged as your decision).`,["Confirm "+a.id])}
+if(/^confirm /.test(s)&&id){const a=S.apps.find(x=>x.id.toLowerCase()===id.toLowerCase());if(R().inst||!a||curStage(a)!=="EVC")return bot("You can't schedule this one.");const v=doSched(a.id,true);return bot("Booked for "+fmt(v)+". Institution and panel notified.")}
+if(/inspect|checklist/.test(s))return bot("EVC inspection checklist:\n"+CHECK.map(c=>"• "+c[0]+": "+c[2]).join("\n")+"\nI pre-fill items from photos; the expert confirms each one.");
+if(/photo|picture|geo/.test(s))return bot("Photo rules: taken on campus (within 0.5 km, read from the photo's GPS), during the visit window, clear and well lit, and not a copy of an earlier photo. Building photos are checked for cracks.");
+if(id){const a=S.apps.find(x=>x.id.toLowerCase()===id.toLowerCase());if(!a||!vis(a))return bot("I can't find that application for your role.");return bot(summary(a),["Open "+a.id,"What is overdue?"])}
+if(/^open /.test(s)){const a=S.apps.find(x=>s.includes(x.id.toLowerCase()));if(a){go("apps");openApp(a.id)}return bot("Opened.")}
+if(R().member&&/^(complain|complaint|report)\b/.test(s)&&s.length>20){const x=fileCmp(R().inst,R().member,role,true,"assistant",q.split(":").slice(1).join(":").trim()||q,false);engine5();save();render();return bot(`Registered ${x.id} · ${x.cat} · ${TL[x.threat-1]}. Response due ${fmt(x.due)}. Your name stays confidential.`)}
+if(/threat|risk|danger|watch ?list/.test(s)){const I=S.insts.filter(vis).sort((a,b)=>b.score-a.score).slice(0,6);return bot("Institution threat levels:\n"+I.map(i=>`• ${i.name}: ${TL[i.threat-1]} (score ${i.score})${i.low?" · low funding":""}${i.past?" · past violations":""}`).join("\n"),["Hostel and PG safety","Open complaints"])}
+if(/hostel|\bpg\b|paying guest|housing/.test(s)){return bot("Student housing safety:\n"+S.acc.filter(vis).map(a=>`• ${a.kind} ${a.name} (${a.students} students): structural ${a.sexp<S.today?"EXPIRED":fmt(a.sexp)}, fire NOC ${a.fexp<S.today?"EXPIRED":fmt(a.fexp)}`).join("\n"))}
+if(!R().member&&/\b(new|latest|today|aaj|naye?|recent)\b|complaint site|public site/.test(s)&&/complain|shikayat|came in|aaya|received|site/.test(s)){const C=S.cmps.filter(vis).filter(c=>c.t>=S.today-2);if(!C.length)return bot("Nothing new from the complaint site in the last 2 days.");const u=C.find(c=>c.threat===4&&c.status==="Open");return bot(`${C.length} complaint(s) in the last 2 days:\n`+C.slice(0,8).map(c=>`• ${c.id} · ${TL[c.threat-1]} · ${c.cat} · ${c.inst} · ${c.ch}${c.contact?" · SMS":""} · ${c.status} · reply by ${fmt(c.due)}`).join("\n")+(u?`\nStart with ${u.id}: it is critical and still open.`:""),["What is overdue?","Open complaints"])}
+if(/complain/.test(s)){const C=S.cmps.filter(vis).filter(c=>c.status!=="Closed"&&(!R().member||c.name===role)).slice(0,8);return bot(C.map(c=>`• ${c.id} · ${TL[c.threat-1]} · ${c.cat} · ${c.inst} · ${c.status}`).join("\n")||"No open complaints."+(R().member?"\nSay “complain: …” to file one.":""))}
+if(/overdue|pending|pendency|bottleneck|late/.test(s)){const o=A.map(a=>({a,...appInfo(a)})).filter(x=>x.l>=3);return bot(o.length?`${o.length} application(s) overdue:\n`+o.map(x=>`• ${x.a.id} · ${curStage(x.a)} · ${-x.left} d late · ${x.a.reg}`).join("\n"):"Nothing is overdue right now. 👍",["Go to dashboard"])}
+if(/dashboard/.test(s)){go("dash");return bot("Showing the dashboard.")}
+if(/lease|expir|document|noc|valid/.test(s)){const d=S.docs.filter(vis).filter(x=>x.exp-S.today<=90).sort((a,b)=>a.exp-b.exp);return bot(d.length?d.map(x=>`• ${x.type}, ${x.inst}: ${x.exp<S.today?"EXPIRED":"expires "+fmt(x.exp)}`).join("\n"):"No document expires in the next 90 days.",["Open lease tracker"])}
+if(/lease tracker/.test(s)){go("docs");return bot("Opened lease & documents.")}
+if(/undertaking/.test(s)){const u=S.und.filter(vis).filter(x=>x.st!=="Verified");return bot(u.map(x=>`• ${x.id} ${x.inst}: ${x.cond} · due ${fmt(x.due)} (${x.st})`).join("\n")||"No open undertakings.")}
+if(/evc|visit|expert/.test(s)){const e=A.filter(a=>curStage(a)==="EVC");return bot(e.map(a=>`• ${a.id} ${a.inst}: ${a.evc&&a.evc.date?"scheduled "+fmt(a.evc.date):"not scheduled"}`).join("\n")||"No applications in EVC.")}
+if(/rout|stage|which stages/.test(s)){return bot(Object.entries(S.rules.typeRoute).map(([t,r])=>`• ${t} → ${r}`).join("\n")+"\nAdmins can change these in Rules & timelines.")}
+if(/document.*need|checklist/.test(s))return bot("Typical EoA set: land/lease documents, building plan and occupancy certificate, notarised affidavit, faculty list, fire and structural safety certificates. The live system quotes the exact APH clause.");
+if(/help|what can/.test(s))return bot("Try: “status of APP-27-1102”, “what is overdue”, “leases expiring”, “pending undertakings”, “EVC schedule”, “explain routing”.");
+bot("I didn't get that. Try “what is overdue” or an application ID like APP-27-1043.",["What is overdue?","Pending undertakings"])}
+let rec;window.mic=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition,b=$("#mic");if(SR){rec=new SR();rec.lang="en-IN";b.classList.add("live");rec.onresult=e=>{b.classList.remove("live");ask(e.results[0][0].transcript)};rec.onerror=()=>{b.classList.remove("live");demoV()};rec.onend=()=>b.classList.remove("live");rec.start();toast("Listening…")}else demoV()};
+function demoV(){const b=$("#mic");b.classList.add("live");toast("Demo voice: “What is overdue?”");setTimeout(()=>{b.classList.remove("live");ask("What is overdue?")},1300)}
+/* ================= v5: complaints, AI threat levels, watchlist, hostels & PGs ================= */
+const TL=["T1 Low","T2 Elevated","T3 High","T4 Critical"];const tchip=l=>`<span class="lv L${l}"><i></i>${TL[l-1]}</span>`;
+const CATS=[["Structural / building safety",4,/crack|collapse|ceiling|plaster|tilting|seepage|leak|unsafe building|pillar|daraar/],["Fire safety",4,/fire|extinguisher|exit (is )?locked|short circuit|aag/],
+["Ragging / harassment / violence",4,/ragging|harass|assault|threat|violence|bully|suicide/],["Unapproved / fake programme",4,/not approved|unapproved|fake|fraud/],
+["Faculty / salary",3,/salary|salaries|not paid|faculty shortage|no teacher|ghost faculty/],["Fees / refund",3,/fee|fees|refund|capitation|donation|charged/],
+["Hostel / food / water",2,/food|water|hygiene|toilet|mess|electricity|wifi/],["Infrastructure / labs / library",2,/lab|library|equipment|computer|classroom|projector/],["Disclosure / information",1,/website|disclosure|information|notice|not updated/]];
+const CDAYS={1:15,2:10,3:7,4:2},LOWF=40000;
+function v5seed(){const d=S.today;
+ S.insts=[["ABC Institute of Technology","Mumbai",72000,0,"",1],["Sahyadri College of Engineering","Mumbai",31000,1,"2025: faculty shortage notice",1],["Konkan Polytechnic","Mumbai",26000,0,"",0],["Indus School of Management","New Delhi",95000,0,"",0],["Yamuna Institute of Technology","New Delhi",58000,0,"",1],["Cauvery Engineering College","Chennai",38000,2,"2024: intake cut; 2025: fire NOC lapse",1],["Marina Institute of Pharmacy","Chennai",64000,0,"",0],["Hooghly Institute of Technology","Kolkata",29000,3,"2023-25: three show-cause notices",1],["Narmada College of Engineering","Bhopal",45000,0,"",1],["Deccan Institute of Architecture","Hyderabad",81000,0,"",0],["Godavari Polytechnic","Hyderabad",22000,0,"",0],["Vindhya Institute of Technology","Bhopal",52000,1,"2026: lease dispute",1],["IIIT Bhubaneswar","Kolkata",88000,0,"",1]]
+  .map(([name,reg,f,pi,note,h])=>({name,inst:name,reg,fund:f,low:f<LOWF,past:pi,note,hostel:h,support:f<LOWF?"Not provisioned":"—",last:d-(pi?200:300),threat:1,score:0,why:[],notified:0}));
+ S.acc=[["ACC-01","ABC Institute of Technology","Mumbai","Boys hostel Block H1","Hostel",320,2004,140,60,d-90],["ACC-02","ABC Institute of Technology","Mumbai","Shree Sai PG, Station Road","PG",46,1981,-12,25,d-400],["ACC-03","Sahyadri College of Engineering","Mumbai","Girls hostel","Hostel",180,2012,20,210,d-150],["ACC-04","Cauvery Engineering College","Chennai","Hostel Block C","Hostel",260,1995,75,-3,d-380],["ACC-05","Hooghly Institute of Technology","Kolkata","Riverside Boys PG","PG",38,1976,-40,-10,d-500],["ACC-06","Yamuna Institute of Technology","New Delhi","Satya PG for students","PG",52,1979,15,120,d-300],["ACC-07","Narmada College of Engineering","Bhopal","Hostel A","Hostel",200,2015,400,300,d-60],["ACC-08","IIIT Bhubaneswar","Kolkata","Boys hostel, Gothapatna campus","Hostel",600,2008,300,160,d-70],["ACC-09","IIIT Bhubaneswar","Kolkata","Girls hostel, Gothapatna campus","Hostel",350,2010,280,140,d-70],["ACC-10","IIIT Bhubaneswar","Kolkata","Private PG near Patia (off-campus)","PG",40,1999,26,90,d-240]]
+  .map(([id,inst,reg,name,kind,students,built,se,fe,li])=>({id,inst,reg,name,kind,students,built,sexp:d+se,fexp:d+fe,lastI:li,notified:0}));
+ S.cmps=[];S.checks=[];
+ [[-3,"ABC Institute of Technology","Student","Cracks have appeared on the ceiling of our PG room at Shree Sai PG and plaster keeps falling","voice"],[-6,"Hooghly Institute of Technology","Professor","Salaries not paid for 3 months and labs have no equipment","web"],[-1,"Cauvery Engineering College","Student","Hostel fire extinguishers are empty and the exit is locked at night","web"],[-9,"Konkan Polytechnic","Staff","Website mandatory disclosure not updated since 2024","web"],[-2,"Sahyadri College of Engineering","Student","Seniors are ragging first year students in the hostel","voice"],[-4,"IIIT Bhubaneswar","Student","Library e-journal access expired last month and the new subscription is not active yet","call"]]
+  .forEach(([t,i,by,txt,ch])=>fileCmp(i,by,"",true,ch,txt,false,d+t))}
+function classify(inst,text){const t=norm6(text),why=[];let cat="General",l=1;for(const [n,b,rx] of CATS)if(rx.test(t)){cat=n;l=b;why.push(`category: ${n} (base ${TL[b-1]})`);break}
+ const hostel=/hostel|\bpg\b|paying guest|mess|room|dorm|warden/.test(t);if(hostel&&l<4){l++;why.push("students' living space (hostel / PG) → +1")}else if(hostel)why.push("students' living space (hostel / PG)");
+ const rep=S.cmps.filter(c=>c.inst===inst&&c.cat===cat&&c.t>=S.today-30).length;if(rep>=2&&l<4){l++;why.push(rep+" similar complaints in 30 days → +1")}
+ const I=S.insts.find(i=>i.name===inst);if(I&&I.past>=2&&l<4){l++;why.push(I.past+" past violations → +1")}return{cat,l,hostel,why}}
+function fileCmp(inst,by,name,anon,ch,text,photo,day){const I=S.insts.find(i=>i.name===inst);const c=classify(inst,text);if(photo)c.why.push("photo evidence attached");
+ const t=day??S.today,id="CMP-27-"+String(413+S.cmps.length).padStart(6,"0");const x={id,t,inst,reg:I.reg,by,name,anon,ch,text,cat:c.cat,threat:c.l,why:c.why,hostel:c.hostel,status:"Open",due:t+CDAYS[c.l],action:"",notified:0};
+ S.cmps.unshift(x);log("AnuSahayak","COMPLAINT_FILED",id,`${by} · ${ch} · ${c.cat} · ${TL[c.l-1]} · ${inst}`);if(c.l===4)notify("Monitoring Bureau + Member Secretary","SMS + email + dashboard",id,"CRITICAL complaint at "+inst+": "+c.cat);
+ notify("Regional Office, "+I.reg,"In-app + email",id,`New ${TL[c.l-1]} complaint: ${c.cat}. Respond by ${fmt(x.due)}`);return x}
+function risk(I){let s=0;const why=[];S.cmps.filter(c=>c.inst===I.name&&c.status!=="Closed").forEach(c=>{const p={1:2,2:5,3:10,4:20}[c.threat];s+=p;why.push(`open ${TL[c.threat-1]} complaint: ${c.cat} (+${p})`)});
+ if(I.low){s+=10;why.push(`low funding: ₹${I.fund.toLocaleString("en-IN")}/student/yr (+10)`)}if(I.past){const p=Math.min(15,5*I.past);s+=p;why.push(`${I.past} past violation(s): ${I.note} (+${p})`)}
+ S.acc.filter(a=>a.inst===I.name).forEach(a=>{[["sexp","structural stability"],["fexp","fire NOC"]].forEach(([k,lb])=>{const left=a[k]-S.today;if(left<0){s+=15;why.push(`${a.kind} '${a.name}': ${lb} EXPIRED (+15)`)}else if(left<=30){s+=6;why.push(`${a.kind} '${a.name}': ${lb} expires in ${left} d (+6)`)}});
+  if(a.kind==="PG"&&new Date(S.today*864e5).getUTCFullYear()-a.built>40){s+=4;why.push(`PG '${a.name}' building is over 40 years old (+4)`)}});
+ const ov=S.und.filter(u=>u.inst===I.name&&u.st!=="Verified"&&u.due<S.today).length;if(ov){s+=5*ov;why.push(`${ov} undertaking(s) overdue (+${5*ov})`)}
+ const ex=S.docs.filter(x=>x.inst===I.name&&x.exp<S.today).length;if(ex){s+=8*ex;why.push(`${ex} prescribed document(s) expired (+${8*ex})`)}
+ s=Math.min(100,s);return{s,l:s<15?1:s<30?2:s<50?3:4,why}}
+function engine5(){let n=0;const T=S.today;
+ S.cmps.filter(c=>c.status!=="Closed").forEach(c=>{let l=c.due<T-7?4:c.due<T?3:1;if(l>c.notified&&l>=3){notify((l===3?"Regional Director, ":"Monitoring Bureau Head, ")+c.reg,"Email + SMS",c.id,`Complaint response overdue (${TL[c.threat-1]}, ${c.cat})`);log("Engine","ESCALATED",c.id,"Complaint response overdue");n++}if(l>c.notified)c.notified=l});
+ S.acc.forEach(a=>{const w=Math.min(a.sexp,a.fexp)-T,l=lvl(w,"doc");if(l>a.notified&&l>=2){notify(a.inst+" (principal)","Email + SMS",a.id,`${a.kind} '${a.name}' (${a.students} students): safety papers ${w<0?"EXPIRED":"expire in "+w+" days"}`);if(l>=3)notify("Regional Director, "+a.reg,"Email + SMS + dashboard",a.id,"Student housing safety: "+a.name+" needs inspection");log("Engine",l>=3?"ESCALATED":"ADVANCE_ALERT",a.id,a.kind+" "+a.name+" safety papers");n++}if(l>a.notified)a.notified=l});
+ S.insts.forEach(I=>{const r=risk(I);I.score=r.s;I.threat=r.l;I.why=r.why;if(r.l>I.notified&&r.l>=3){notify("Monitoring Bureau"+(r.l===4?" + Member Secretary":""),"Email + dashboard",I.name,`Institution threat level ${TL[r.l-1]} (score ${r.s})`);log("Engine","THREAT_RAISED",I.name,TL[r.l-1]+" · score "+r.s);n++}I.notified=r.l;
+  const iv=r.l===4?30:r.l===3?60:(I.low||I.past)?90:365;if(T-I.last>=iv&&!S.checks.some(c=>c.inst===I.name&&c.status==="Scheduled")){const id="CHK-"+(100+S.checks.length),why=(r.l>=3?TL[r.l-1]+" threat":I.low?"low funding":I.past?"past violations":"annual")+"; every "+iv+" days";
+   S.checks.push({id,inst:I.name,reg:I.reg,why,due:T+(r.l===4?7:15),status:"Scheduled"});notify("Regional Office, "+I.reg,"In-app + email",id,"Periodic compliance check due for "+I.name+" ("+why+")");log("Engine","CHECK_SCHEDULED",id,I.name+" · "+why);n++}});return n}
+/* views */
+function cmpRow(x,act){const over=x.status!=="Closed"&&x.due<S.today;return `<tr><td><b>${x.id}</b><div class="muted">${fmt(x.t)} · ${x.ch}</div></td><td>${x.inst}<div class="muted">${x.by}${x.anon?" · confidential":""}</div>${x.contact?`<div class="muted">📱 ${esc(x.contact)} · SMS updates</div>`:""}</td><td>${esc(x.text)}${x.hostel?' <span class="pill" style="background:var(--l3b);color:var(--l3)">hostel / PG</span>':""}<div class="muted">AI: ${x.why.join(" · ")}</div>${x.action?`<div class="ok">Action: ${esc(x.action)}</div>`:""}</td><td>${tchip(x.threat)}<div class="muted">${x.cat}</div></td><td>${x.status}<div class="${over?"bad":"muted"}">${over?"overdue since "+fmt(x.due):"respond by "+fmt(x.due)}</div></td>${act?`<td>${x.status!=="Closed"&&canAct()?`<select id="cs-${x.id}"><option>Under review</option><option>Action taken</option><option>Closed</option></select><input id="ca-${x.id}" placeholder="Action taken" style="margin-top:4px;width:150px"><button class="btn s" style="margin-top:4px" onclick="cmpSet('${x.id}')">Save</button>`:""}</td>`:""}</tr>`}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const canAct=()=>!R().inst&&!R().member&&!role.startsWith("Admin");
+V.complaints=()=>{const C=S.cmps.filter(vis),open=C.filter(c=>c.status!=="Closed");return `<h1>Complaints</h1><p class="sub">Filed by students, professors, staff, parents and the public, by web, voice or photo. AnuSahayak sets the threat level; an officer confirms it and records the action.</p>
+ <div class="grid g4">${[4,3,2,1].map(l=>`<div class="card">${tchip(l)}<div class="kpi">${open.filter(c=>c.threat===l).length}</div><div class="muted">${["respond in 15 days","respond in 10 days","respond in 7 days","48 hours · Bureau + Member Secretary alerted"][l-1]}</div></div>`).join("")}</div>
+ <div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution · by</th><th>Complaint · AI reasoning</th><th>Threat</th><th>Status</th><th></th></tr>${C.map(x=>cmpRow(x,true)).join("")}</table></div>
+ <div class="card"><h3>How the threat level is set</h3><div class="pipe"><span class="st done">Text / voice / photo</span>›<span class="st done">Category (MuRIL; keyword fallback)</span>›<span class="st done">+1 hostel / PG</span>›<span class="st done">+1 repeated in 30 days</span>›<span class="st done">+1 past violations</span>›<span class="st cur">Officer confirms</span></div></div>`};
+window.cmpSet=id=>{const x=S.cmps.find(c=>c.id===id),st=$("#cs-"+id).value,a=$("#ca-"+id).value.trim();if(st==="Closed"&&!a&&!x.action){toast("Record the action taken before closing");return}x.status=st;if(a)x.action=a;log(role,"COMPLAINT_"+st.toUpperCase().replace(" ","_"),id,a||st);engine5();save();render();toast("Complaint updated")};
+V.raise=()=>{const r=R();return `<h1>Raise a complaint</h1><p class="sub">${r.member?"Signed in as "+role+". ":""}Your complaint goes to AICTE, not to the college management. Students, professors, faculty, staff, parents and the public can all file.</p>
+ <form class="card" id="cf" onsubmit="event.preventDefault();sendCmp()"><h3>Tell AICTE what is wrong</h3>${r.member?"":`<label class="muted">Institution</label><select id="cinst" style="width:100%">${S.insts.map(i=>`<option>${i.name}</option>`).join("")}</select><label class="muted">You are</label><select id="crole" style="width:100%"><option>Student</option><option>Professor</option><option>Faculty member</option><option>Staff</option><option>Parent</option><option>Public</option></select>`}
+ <label class="muted">What happened?</label><textarea id="ctext" rows="4" style="width:100%" placeholder="e.g. Cracks in the ceiling of our PG room; plaster is falling"></textarea>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px"><button type="button" class="btn ghost s" onclick="cmpVoice()">🎙️ Speak instead</button><label class="btn ghost s">📷 Add photo<input id="cphoto" type="file" accept="image/*" capture="environment" style="display:none"></label><label class="muted"><input id="canon" type="checkbox" checked> Keep my name confidential</label></div>
+ <button class="btn" style="margin-top:10px">Submit complaint</button><div id="cres" style="margin-top:10px"></div></form>`};
+window.sendCmp=()=>{const r=R(),t=$("#ctext").value.trim();if(t.length<10){toast("Describe the problem in a sentence or two");return}const inst=r.member?r.inst:$("#cinst").value,by=r.member?r.member:$("#crole").value;
+ const x=fileCmp(inst,by,r.member?role:"",$("#canon").checked,$("#cf").dataset.voice?"voice":$("#cphoto").files[0]?"photo":"web",t,!!$("#cphoto").files[0]);engine5();save();
+ $("#cres").innerHTML=`<div class="ai">✅ Registered <b>${x.id}</b> · ${x.cat} · ${tchip(x.threat)}<br>Response due ${fmt(x.due)}.<div class="muted">AI: ${x.why.join(" · ")}</div><div style="margin-top:8px">It is now on the AICTE Officials site. Keep the number to follow it: <button class="btn s" type="button" onclick="track9('${x.id}')">Track ${x.id}</button></div></div>`;$("#ctext").value=""};
+window.cmpVoice=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;const demo="Hamare PG ki deewar mein daraar aa gayi hai, the ceiling plaster is falling";if(!SR){$("#ctext").value=demo;$("#cf").dataset.voice=1;toast("Demo voice input used");return}
+ const r=new SR();r.lang="hi-IN";r.onresult=e=>{$("#ctext").value=e.results[0][0].transcript;$("#cf").dataset.voice=1};r.onerror=()=>{$("#ctext").value=demo;$("#cf").dataset.voice=1;toast("Demo voice input used")};r.start();toast("Listening (Hindi or English)…")};
+V.mine=()=>`<h1>My complaints</h1><div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Institution · by</th><th>Complaint</th><th>Threat</th><th>Status</th></tr>${S.cmps.filter(c=>c.name===role).map(x=>cmpRow(x,false)).join("")||'<tr><td colspan="5" class="muted">None yet. Use “Raise a complaint”.</td></tr>'}</table></div>`;
+V.risk=()=>{const I=S.insts.filter(vis).sort((a,b)=>b.score-a.score);return `<h1>Threat &amp; watchlist</h1><p class="sub">AnuSahayak combines complaints, funding, past violations, hostel / PG safety papers, overdue undertakings and expired documents into one score per institution. Low-funded and previously flagged colleges are checked on a fixed cycle.</p>
+ <div class="grid g4">${[4,3,2,1].map(l=>`<div class="card">${tchip(l)}<div class="kpi">${I.filter(i=>i.threat===l).length}</div><div class="muted">${["score below 15","score 15-29 · watch","score 30-49 · check every 60 days","score 50+ · check every 30 days"][l-1]}</div></div>`).join("")}</div>
+ <div class="card" style="overflow:auto"><table><tr><th>Institution</th><th>Threat</th><th>Why (AI)</th><th>Funding</th><th>Past issues</th><th>Last check</th></tr>${I.map((i,k)=>`<tr><td><b>${i.name}</b><div class="muted">${i.reg}</div></td><td>${tchip(i.threat)}<div class="bar" style="margin-top:4px;width:110px"><b style="width:${i.score}%;background:${["#2E7D5B","#E3B505","#C46A12","#B23A48"][i.threat-1]}"></b></div><div class="muted">score ${i.score}/100</div></td><td class="muted" style="max-width:340px">${i.why.join("<br>")||"no risk signals"}</td>
+ <td>${i.low?`<span class="warn">Low</span>`:"Adequate"}<div class="muted">₹${i.fund.toLocaleString("en-IN")}/student/yr</div>${i.low?`<div class="muted">Support: ${i.support}</div>${canAct()&&!role.startsWith("Regional")?`<select id="sp-${k}"><option>MODROBS grant recommended</option><option>Margdarshan mentoring assigned</option><option>Faculty development (ATAL FDP)</option><option>Support provisioned · review in 90 days</option></select><button class="btn s" onclick="setSup('${i.name}',${k})">Save</button>`:""}`:""}</td>
+ <td>${i.past?`<span class="bad">${i.past}</span><div class="muted">${i.note}</div>`:"—"}</td><td>${fmt(i.last)}</td></tr>`).join("")}</table></div>
+ <div class="card" style="overflow:auto"><h3>Periodic checks (auto-scheduled)</h3><table><tr><th>ID</th><th>Institution</th><th>Why</th><th>Due</th><th>Status</th><th></th></tr>${S.checks.filter(vis).map(x=>`<tr><td><b>${x.id}</b></td><td>${x.inst}</td><td>${x.why}</td><td class="${x.status==="Scheduled"&&x.due<S.today?"bad":""}">${fmt(x.due)}</td><td>${x.status}</td><td>${x.status==="Scheduled"&&canAct()?`<select id="cf-${x.id}"><option>Compliant</option><option>Minor gaps found</option><option>Serious violation found</option></select><button class="btn s" onclick="chkDone('${x.id}')">Record</button>`:""}</td></tr>`).join("")||'<tr><td colspan="6" class="muted">No checks due.</td></tr>'}</table></div>`};
+window.setSup=(n,k)=>{const I=S.insts.find(i=>i.name===n);I.support=$("#sp-"+k).value;log(role,"FUNDING_SUPPORT",n,I.support);save();render();toast("Funding support recorded")};
+window.chkDone=id=>{const c=S.checks.find(x=>x.id===id),f=$("#cf-"+id).value,I=S.insts.find(i=>i.name===c.inst);c.status="Done · "+f;I.last=S.today;if(f!=="Compliant"){I.past++;I.note=fmt(S.today)+": "+f}log(role,"CHECK_DONE",id,c.inst+" · "+f);engine5();save();render();toast("Check recorded")};
+V.housing=()=>`<h1>Hostels &amp; PGs</h1><p class="sub">Where students sleep gets priority. Structural stability and fire NOC are tracked for every hostel and listed PG; complaints from residents move up one threat level.</p>
+ <div class="card" style="overflow:auto"><table><tr><th>ID</th><th>Accommodation</th><th>Students</th><th>Built</th><th>Structural stability</th><th>Fire NOC</th><th>Last inspection</th><th></th></tr>${S.acc.filter(vis).sort((a,b)=>Math.min(a.sexp,a.fexp)-Math.min(b.sexp,b.fexp)).map(a=>{const cell=x=>`${chip(lvl(x-S.today,"doc"),"doc")}<div class="muted">${fmt(x)}</div>`;
+ return `<tr><td><b>${a.id}</b></td><td><b>${a.name}</b><div class="muted">${a.kind} · ${a.inst}</div></td><td>${a.students}</td><td>${a.built}${new Date(S.today*864e5).getUTCFullYear()-a.built>40?' <span class="warn">40+ yrs</span>':""}</td><td>${cell(a.sexp)}</td><td>${cell(a.fexp)}</td><td class="${S.today-a.lastI>365?"bad":""}">${fmt(a.lastI)}</td><td>${canAct()?`<button class="btn s ghost" onclick="accDone('${a.id}')">Mark inspected</button>`:""}</td></tr>`}).join("")}</table></div>
+ <div class="card"><h3>Hostel / PG complaints</h3><div style="overflow:auto"><table><tr><th>ID</th><th>Institution · by</th><th>Complaint</th><th>Threat</th><th>Status</th></tr>${S.cmps.filter(vis).filter(c=>c.hostel).map(x=>cmpRow(x,false)).join("")||'<tr><td colspan="5" class="muted">None.</td></tr>'}</table></div></div>`;
+window.accDone=id=>{const a=S.acc.find(x=>x.id===id);a.lastI=S.today;log(role,"HOUSING_INSPECTED",id,a.kind+" "+a.name+" inspected");save();render();toast("Inspection recorded")};
+
+/* ===== v6 shared UI: chronological journey, AI proof scanner, voice assistant, call assistant, institution timeline =====
+   Needs an adapter window.AP6 (server version or offline version) and the page helpers $, esc, toast, go. */
+const J6=[["apps","Apply","institution files on the portal"],["scan","AI proof scan","stamp, signature, dates, reuse"],["apps","Auto-route + scrutiny","APH route table, timers"],["evc","EVC scheduling","AI panel + date"],["evc","Inspection","geo-tagged photo checks"],["apps","SAC/SHC + decision","competent authority decides"],["und","Undertakings","evidence, verify, remind"],["docs","Lease + documents","T-90 / T-30 renewals"],["complaints","Complaints","web, voice, photo, call"],["risk","Threat level + watchlist","T1-T4, funding, past issues"],["housing","Hostels + PGs","priority checks"],["alerts","Alerts + audit","escalation ladder, hash chain"]];
+function journey6(){const nav=AP6.nav();return `<div class="card"><h3>Case journey (chronological)</h3><div class="jrn">${J6.map(([v,t,d],i)=>{const k=v==="complaints"&&!nav.includes("complaints")&&nav.includes("raise")?"raise":v==="apps"&&!nav.includes("apps")&&nav.includes("inst")?"inst":v;const on=nav.includes(k);return `<button class="js ${on?"":"off"}" ${on?`onclick="go('${k}')"`:"disabled"}><b>${i+1}</b><span>${t}<small>${d}</small></span></button>`}).join("")}</div></div>`}
+/* ---------- AI proof scanner ---------- */
+const PURP6=["Fire safety NOC","Lease deed","Building / structural stability certificate","Undertaking evidence","Complaint photo"];
+let scanRes6=null,scanImg6="";
+function scanView6(){const P=AP6.pick(),I=AP6.insts();return `<h1>AI proof scanner</h1><p class="sub">Upload or photograph a proof. AnuSahayak checks it in seconds; an officer confirms the result before it changes any record.</p>
+<div class="grid g2"><div class="card"><h3>Scan a document</h3>
+<label class="muted">What is it?</label><select id="sp6" style="width:100%">${PURP6.map(p=>`<option>${p}</option>`).join("")}</select>
+${P?`<label class="muted">Institution</label><select id="si6" style="width:100%">${I.map(n=>`<option ${n==="IIIT Bhubaneswar"?"selected":""}>${esc(n)}</option>`).join("")}</select>`:`<p class="muted">Institution: <b>${esc(AP6.userInst())}</b></p>`}
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><label class="btn ghost s">📷 Camera / file<input id="sf6" type="file" accept="image/*,.pdf,.txt" capture="environment" style="display:none" onchange="scanFile6()"></label>
+<button class="btn green s" onclick="scanDemo6('genuine')">Try a genuine certificate</button><button class="btn red s" onclick="scanDemo6('tampered')">Try a tampered one</button></div>
+<div class="pipe" style="margin-top:12px"><span class="st done">Upload / camera</span>›<span class="st done">Read text (OCR)</span>›<span class="st done">Stamp + signature</span>›<span class="st done">Name + validity date</span>›<span class="st done">Reuse check (hash)</span>›<span class="st done">Editing tags</span>›<span class="st cur">Officer confirms</span></div></div>
+<div class="card" id="sr6">${scanRes6?scanCard6(scanRes6):'<p class="muted">The result appears here.</p>'}</div></div>
+<div class="card" style="overflow:auto"><h3>Recent scans</h3><table><tr><th>ID</th><th>Institution</th><th>Document</th><th>Verdict</th><th>Flags</th></tr>${AP6.scans().map(x=>`<tr><td><b>${x.id}</b><div class="muted">${AP6.fmt(x.t)}</div></td><td>${esc(x.inst)}</td><td>${esc(x.purpose)}<div class="muted">${esc(x.filename)}</div></td><td>${vchip6(x.verdict)}</td><td class="muted">${x.checks.filter(k=>k.st!=="ok").map(k=>esc(k.label+": "+k.detail)).join("<br>")||"none"}</td></tr>`).join("")||'<tr><td colspan="5" class="muted">No scans yet.</td></tr>'}</table></div>`}
+const vchip6=v=>`<span class="lv L${v==="Looks genuine"?1:v==="Suspicious"?4:3}"><i></i>${esc(v)}</span>`;
+function scanCard6(r){return `<h3>${esc(r.id||"")} ${vchip6(r.verdict)}</h3>${scanImg6?`<img src="${scanImg6}" alt="scanned document" style="max-width:100%;max-height:220px;border:1px solid var(--line);border-radius:8px;margin-bottom:8px">`:""}
+<div class="chk6">${r.checks.map(k=>`<div class="${k.st}"><b>${k.st==="ok"?"✔":k.st==="warn"?"⚠":"✖"} ${esc(k.label)}</b><span>${esc(k.detail)}</span></div>`).join("")}</div>
+<p class="muted" style="margin-top:8px">${r.verdict==="Suspicious"?"The Regional Office has been alerted. ":""}Logged in the audit trail. Final call: the verifying officer.</p>`}
+function scanBusy6(){$("#sr6").innerHTML='<p class="muted">🔍 Scanning… reading text, stamp, signature, dates and hashes</p>'}
+window.scanFile6=async()=>{const f=$("#sf6").files[0];if(!f)return;scanBusy6();scanImg6=f.type.startsWith("image/")?URL.createObjectURL(f):"";
+ try{scanRes6=await AP6.scan(f,$("#sp6").value,AP6.pick()?$("#si6").value:AP6.userInst());await AP6.refresh();AP6.rerender()}catch(e){$("#sr6").innerHTML=`<span class="bad">${esc(e.message)}</span>`}};
+window.scanDemo6=async kind=>{scanBusy6();const p=$("#sp6").value==="Complaint photo"?"Fire safety NOC":$("#sp6").value;
+ try{const r=await AP6.demo(kind,p,AP6.pick()?$("#si6").value:AP6.userInst());scanRes6=r;scanImg6=r.img||"";await AP6.refresh();AP6.rerender()}catch(e){$("#sr6").innerHTML=`<span class="bad">${esc(e.message)}</span>`}};
+/* ---------- voice assistant ---------- */
+let vlang6="en-IN",vhands6=false,vlive6=false,vlog6=[];
+const SR6=()=>window.SpeechRecognition||window.webkitSpeechRecognition;
+function speak6(t,lang,done){if(!window.speechSynthesis){done&&done();return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/<[^>]+>/g,"").replace(/[•·→›]/g,", "));u.lang=lang||vlang6;
+ const v=speechSynthesis.getVoices().find(x=>x.lang===u.lang);if(v)u.voice=v;u.onend=()=>done&&done();u.onerror=()=>done&&done();speechSynthesis.speak(u)}
+function listen6(lang,onText,onFail){const SR=SR6();if(!SR){onFail("no-speech-api");return null}const r=new SR();r.lang=lang;r.interimResults=false;r.onresult=e=>onText(e.results[0][0].transcript);
+ r.onerror=e=>onFail(e.error);try{r.start()}catch(e){onFail("blocked")}return r}
+function voiceView6(){const m=AP6.member();const ex=vlang6==="hi-IN"?(m?["शिकायत: हॉस्टल की छत में दरार है","मेरी शिकायत की स्थिति","hostel suraksha batao"]:["khatra level batao","lambit kaam kitne hain","hostel suraksha batao"]):(m?["complain: no drinking water in the hostel","My complaints","How do I scan a proof?"]:["Show threat levels","What is overdue?","Hostel and PG safety","Schedule EVC for APP-27-1160"]);
+ return `<h1>Voice assistant</h1><p class="sub">Talk to AnuSahayak in English or Hindi. It answers aloud from the data your role can see, and can file a complaint for you.</p>
+<div class="card vox"><div class="vtop"><div class="seg"><button class="${vlang6==="en-IN"?"on":""}" onclick="vLang6('en-IN')">English</button><button class="${vlang6==="hi-IN"?"on":""}" onclick="vLang6('hi-IN')">हिन्दी</button></div>
+<label class="muted"><input type="checkbox" ${vhands6?"checked":""} onchange="vhands6=this.checked"> Hands-free (keeps listening after each answer)</label></div>
+<button class="orb ${vlive6?"live":""}" id="orb6" onclick="vTap6()" aria-label="Tap to talk">🎙️</button><div class="muted" id="vst6" style="text-align:center">${vlive6?"Listening…":"Tap to talk"}</div>
+<div class="vlog" id="vlog6">${vlog6.map(x=>`<div class="m ${x[0]}">${esc(x[1])}</div>`).join("")}</div>
+<div class="chips" style="padding:0">${ex.map(e=>`<button class="chip" onclick="vSend6(this.textContent)">${esc(e)}</button>`).join("")}</div>
+<div class="inbar" style="border:0;padding:8px 0 0"><input id="vin6" placeholder="Or type what you would say" onkeydown="if(event.key==='Enter'){vSend6(this.value);this.value=''}"><button class="btn s" onclick="vSend6($('#vin6').value);$('#vin6').value=''">Send</button></div></div>
+<div class="card"><h3>How it works</h3><div class="pipe"><span class="st done">Speech-to-text (Bhashini; browser speech here)</span>›<span class="st done">Hindi → intent</span>›<span class="st done">Answer from role-scoped data</span>›<span class="st done">Text-to-speech</span>›<span class="st cur">Logged</span></div></div>`}
+window.vLang6=l=>{vlang6=l;AP6.rerender()};
+function vAdd6(who,t){vlog6.push([who,t]);if(vlog6.length>30)vlog6.shift();const L=$("#vlog6");if(L){const d=document.createElement("div");d.className="m "+who;d.textContent=t;L.appendChild(d);L.scrollTop=1e6}}
+function vState6(t,live){vlive6=live;const o=$("#orb6");if(o)o.classList.toggle("live",live);const s=$("#vst6");if(s)s.textContent=t}
+window.vSend6=async q=>{q=(q||"").trim();if(!q)return;vAdd6("me",q);vState6("Thinking…",false);
+ try{const r=await AP6.ask(q);vAdd6("bot",r.text);vState6("Speaking…",false);speak6(r.text,vlang6,()=>{vState6("Tap to talk",false);if(vhands6&&cur==="voice")vTap6()});if(r.refresh)await AP6.refresh()}catch(e){vAdd6("bot","Sorry: "+e.message);vState6("Tap to talk",false)}};
+const VDEMO6={"en-IN":["What is overdue?","Show threat levels","Hostel and PG safety"],"hi-IN":["khatra level batao","hostel suraksha batao","lambit kaam kitne hain"]};let vdi6=0;
+window.vTap6=()=>{if(vlive6)return;vState6("Listening…",true);listen6(vlang6,t=>{vState6("…",false);vSend6(t)},err=>{vState6("Tap to talk",false);
+ const d=AP6.member()?(vlang6==="hi-IN"?"शिकायत: हॉस्टल में पीने का पानी नहीं है":"complain: no drinking water in the hostel since Monday"):VDEMO6[vlang6][vdi6++%3];
+ toast((err==="no-speech-api"?"This browser has no speech input":"Microphone not available here")+". Playing a demo phrase: “"+d+"”");setTimeout(()=>vSend6(d),900)})};
+/* ---------- call assistant ---------- */
+let call6=null;
+function callView6(pub){return `<h1>Call AnuSahayak</h1><p class="sub">The same assistant on a phone line, for students, parents and staff without the app. Press keys or speak, in Hindi or English. Every call is logged and complaints get a number by SMS.</p>
+<div class="grid g2"><div class="phone"><div class="ptop"><b>AnuSahayak helpline</b><small>AICTE · demo line</small><div id="pst6">${call6?"On call · "+call6.id:"Ready"}</div></div>
+<div class="plog" id="plog6">${call6?call6.log.map(x=>`<div class="m ${x[0]}">${esc(x[1])}</div>`).join(""):'<p class="muted" style="text-align:center;margin-top:40%">Tap the green button to call</p>'}</div>
+<div class="keys">${["1","2","3","4","5","6","7","8","9","*","0","#"].map(k=>`<button onclick="cKey6('${k}')">${k}</button>`).join("")}</div>
+<div class="pin"><button class="mic" onclick="cSpeak6()" title="Speak">🎙️</button><input id="cin6" placeholder="Or type what you say" onkeydown="if(event.key==='Enter'){cKey6(this.value);this.value=''}"></div>
+<div class="pbtn"><button class="dial ${call6?"end":""}" onclick="${call6?"cEnd6()":"cStart6()"}">${call6?"✆ Hang up":"✆ Call"}</button></div></div>
+<div><div class="card"><h3>Menu</h3><table><tr><td><b>1</b></td><td>Register a complaint (say the college and the problem)</td></tr><tr><td><b>2</b></td><td>Status of a complaint or application</td></tr><tr><td><b>3</b></td><td>EVC visit date</td></tr><tr><td><b>4</b></td><td>Hostel and PG safety</td></tr><tr><td><b>0</b></td><td>Officer call back (30 min for emergencies)</td></tr><tr><td><b>9</b></td><td>Main menu</td></tr></table></div>
+<div class="card"><h3>Try this call</h3><div class="chips" style="padding:0">${["1","IIIT Bhubaneswar","Hostel ki chhat mein daraar aa gayi hai aur plaster gir raha hai","9","3","1160"].map(e=>`<button class="chip" onclick="cKey6(this.textContent)">${esc(e)}</button>`).join("")}</div>
+<p class="muted" style="margin-top:8px">Production: toll-free number on an IVR gateway; each caller turn hits the same <code>/api/call</code> webhook, with Bhashini speech-to-text and text-to-speech.</p></div>${pub?'<button class="btn ghost s" onclick="location.reload()">← Back</button>':""}</div></div>`}
+function cLog6(who,t){call6.log.push([who,t]);const L=$("#plog6");if(L){if(call6.log.length===1)L.innerHTML="";const d=document.createElement("div");d.className="m "+who;d.textContent=t;L.appendChild(d);L.scrollTop=1e6}}
+async function cTurn6(input){const r=await AP6.call(call6.cid,input);call6.cid=r.call_id;cLog6("bot",r.say);speak6(r.say,/[ऀ-ॿ]/.test(input)?"hi-IN":"en-IN");if(r.filed)AP6.refresh().catch(()=>{});if(r.end){setTimeout(()=>{call6=null;AP6.rerender()},2500)}}
+window.cStart6=async()=>{call6={id:"connecting",cid:"",log:[]};AP6.rerender();try{await cTurn6("");call6.id=call6.cid;const s=$("#pst6");if(s)s.textContent="On call · "+call6.id}catch(e){toast(e.message);call6=null;AP6.rerender()}};
+window.cEnd6=()=>{if(window.speechSynthesis)speechSynthesis.cancel();call6=null;AP6.rerender();toast("Call ended. The transcript is saved with any complaint filed.")};
+window.cKey6=async k=>{k=(k||"").trim();if(!k)return;if(!call6){await cStart6()}cLog6("me",k);try{await cTurn6(k)}catch(e){toast(e.message)}};
+window.cSpeak6=()=>{if(!call6){toast("Start the call first");return}listen6("hi-IN",t=>cKey6(t),()=>toast("Microphone not available here; tap a sample line or type"))};
+/* ---------- chronological timeline ---------- */
+let tlInst6=null,tlEv6=null;
+const TLI6={COMPLAINT_FILED:"📣",PROOF_SCANNED:"🔍",STAGE_COMPLETE:"✅",ADVANCE:"➡️",EVC_SCHEDULED:"📅",ESCALATE:"⚡",ALERT:"🔔",RETURN:"↩️"};
+function tlView6(){const P=AP6.pick(),I=AP6.insts();if(!tlInst6)tlInst6=P?(I.includes("IIIT Bhubaneswar")?"IIIT Bhubaneswar":I[0]):AP6.userInst();
+ if(tlEv6===null){AP6.timeline(tlInst6).then(e=>{tlEv6=e;AP6.rerender()}).catch(e=>{tlEv6=[];toast(e.message)});return `<h1>Timeline</h1><p class="muted">Loading…</p>`}
+ const ev=tlEv6;let last="";return `<h1>Timeline · ${esc(tlInst6)}</h1><p class="sub">Everything that happened to this institution, oldest first: applications, scans, EVC, undertakings, documents, complaints, checks and alerts. Read straight from the hash-chained audit trail.</p>
+ ${P?`<div class="card"><label class="muted">Institution </label><select onchange="tlInst6=this.value;tlEv6=null;AP6.rerender()">${I.map(n=>`<option ${n===tlInst6?"selected":""}>${esc(n)}</option>`).join("")}</select></div>`:""}
+ <div class="card"><div class="tl">${ev.map(e=>{const d=e.date!==last?`<h4 class="tld">${esc(e.date)}</h4>`:"";last=e.date;return d+`<div><b>${TLI6[Object.keys(TLI6).find(k=>e.action.includes(k))]||"•"} ${esc(e.action.replace(/_/g," ").toLowerCase())}</b> · ${esc(e.ref)}<br><span class="muted">${esc(e.actor)} · ${esc(e.detail)}</span></div>`}).join("")||'<p class="muted">No events yet.</p>'}</div></div>`}
+
+/* ================= v6 offline: Hindi voice words, AI proof scanner, call assistant, timeline (UI shared in v6ui) ================= */
+const HI6=[[/शिकायत|shikayat|shikaayat/g,"complaint"],[/छात्रावास|chhatravas/g,"hostel"],[/खतरा|जोखिम|khatra|jokhim/g,"threat"],[/बाकी|लंबित|lambit|baaki|baki/g,"pending"],[/निरीक्षण|nirikshan|jaanch|जांच/g,"inspection"],[/पट्टा|patta/g,"lease"],[/दस्तावेज़|दस्तावेज|dastavez/g,"document"],[/स्कैन|saboot|सबूत/g,"scan"],[/कॉल|फोन/g,"call"],[/दरार|daraar|darar/g,"crack"],[/दीवार|deewar/g,"wall"],[/छत|chhat/g,"ceiling"],[/हॉस्टल/g,"hostel"],[/पानी|paani/g,"water"],[/suraksha|सुरक्षा/g,"safety"],[/स्थिति|sthiti/g,"status"]];
+function norm6(q){let s=String(q).toLowerCase().trim();HI6.forEach(([r,e])=>s=s.replace(r,e));return s}
+const CAMP6={"IIIT Bhubaneswar":{lat:20.2949,lng:85.744}};
+const EDIT6=/photoshop|gimp|canva|picsart|snapseed|lightroom|pixlr|illustrator/i;
+const PRX6={"Fire safety NOC":/fire|emergency services/,"Lease deed":/lease|sub-?registrar|registered|lessor/,"Building / structural stability certificate":/structur|stability|engineer/,"Undertaking evidence":/appointment|completion|minutes|order|certificate/};
+async function sha6(buf){try{const h=await crypto.subtle.digest("SHA-256",buf);return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,"0")).join("")}catch(e){return fnv(new TextDecoder("latin1").decode(new Uint8Array(buf)))}}
+function px6(img,w){const h=Math.max(1,Math.round(w*img.height/img.width)),c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(img,0,0,w,h);return {d:x.getImageData(0,0,w,h).data,w,h}}
+function gray6(p){const g=new Float32Array(p.w*p.h);for(let i=0;i<g.length;i++)g[i]=.299*p.d[i*4]+.587*p.d[i*4+1]+.114*p.d[i*4+2];return g}
+function ahash6(img){const g=gray6(px6(img,8));const m=g.reduce((a,b)=>a+b,0)/g.length;return [...g].map(v=>v>m?"1":"0").join("")}
+function sharp6(img){const p=px6(img,128),g=gray6(p),W=p.w,H=p.h,L=[];for(let y=1;y<H-1;y++)for(let x=1;x<W-1;x++){const i=y*W+x;L.push(g[i-1]+g[i+1]+g[i-W]+g[i+W]-4*g[i])}const m=L.reduce((a,b)=>a+b,0)/L.length;return L.reduce((a,b)=>a+(b-m)**2,0)/L.length}
+function ink6(img){const p=px6(img,240),W=p.w,H=p.h;let n=0,sig=0,x0=W,x1=0,y0=H,y1=0;const e=Math.ceil(W*.03);for(let y=e;y<H-e;y++)for(let x=e;x<W-e;x++){const i=(y*W+x)*4,r=p.d[i],g=p.d[i+1],b=p.d[i+2];
+ if((b>r+45&&b>g+25)||(r>g+70&&r>120&&b<r)){if(x>W*.55&&y>H*.6){sig++;continue}n++;x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)}}
+ return {st:n/(W*H),sg:sig/(W*H),ratio:n?(x1-x0+1)/(y1-y0+1):0}}
+function crack6(img){const p=px6(img,200),g=gray6(p),W=p.w,H=p.h;let n=0;for(let y=3;y<H-3;y++)for(let x=3;x<W-3;x++){let s=0;for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++)s+=g[(y+dy)*W+x+dx];if(s/49-g[y*W+x]>45)n++}return n/(W*H)}
+const MON6={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+function expiry6(t){const m=t.toLowerCase().match(/(valid\s*(till|up\s*to|upto|until)|expir\w*\s*(on|date)?)\D{0,20}(\d{1,2})[./ -](\d{1,2}|[a-z]{3})\w*[./ -](20\d\d)/);if(!m)return null;
+ const mm=/^\d+$/.test(m[5])?+m[5]:MON6[m[5].slice(0,3)];return mm?Math.floor(Date.UTC(+m[6],mm-1,+m[4])/864e5):null}
+function loadImg6(blob){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error("Could not read the image"));i.src=URL.createObjectURL(blob)})}
+async function scanLocal6(blob,name,purpose,inst,meta={}){const buf=await blob.arrayBuffer(),sha=await sha6(buf),raw=new TextDecoder("latin1").decode(new Uint8Array(buf.slice(0,65536)));const ck=[];const isImg=/^image\//.test(blob.type)||/\.(png|jpe?g|webp)$/i.test(name);
+ let img=null,ah=null;if(isImg){img=await loadImg6(blob);ah=ahash6(img)}
+ let text=meta.text||"";if(!text&&/\.txt$/i.test(name))text=new TextDecoder().decode(buf);if(!text&&/\.pdf$/i.test(name))text=(raw.match(/\(([^)]{3,})\)/g)||[]).join(" ");
+ const prev=(S.scans||[]).find(p=>p.sha===sha||(ah&&p.ahash&&[...ah].filter((c,i)=>c!==p.ahash[i]).length<=3));
+ ck.push(prev?(prev.inst!==inst?["bad","Reused document",`same file as ${prev.id} submitted for ${prev.inst}`]:["warn","Already submitted","same as "+prev.id]):["ok","Unique file","not seen before (SHA-256 + perceptual hash)"]);
+ if(img){const sw=meta.software||(raw.match(EDIT6)||[""])[0];ck.push(sw&&EDIT6.test(sw)?["bad","Edited image","saved by "+sw]:["ok","No editing software tag","metadata clean"]);
+  if(sharp6(img)<40)ck.push(["warn","Blurry scan","ask for a clearer copy"]);
+  if(purpose==="Complaint photo"){const e=exif(buf),camp=CAMP6[inst]||CAMPUS;if(e.lat!=null){const d=km(e,camp);ck.push([d<=3?"ok":"warn","Location",`${e.lat.toFixed(4)}, ${e.lng.toFixed(4)} · ${d.toFixed(1)} km from campus`])}else ck.push(["warn","Location","no GPS in photo"]);
+   if(crack6(img)>0.006)ck.push(["bad","Possible structural crack (AI)","send for structural check"])}
+  else{const k=ink6(img);ck.push(k.st>0.004&&k.ratio>0.5&&k.ratio<2.2?["ok","Official stamp / seal",`coloured seal found (${(k.st*100).toFixed(1)}% of page)`]:["bad","Official stamp / seal","no stamp or seal found"]);
+   ck.push(k.sg>0.0008?["ok","Signature","ink strokes in signature area"]:["warn","Signature","no signature found in the usual place"])}}
+ if(purpose!=="Complaint photo"){if(text){const tl=text.toLowerCase(),w=inst.toLowerCase().match(/[a-z]+/g).filter(x=>x.length>2&&!["institute","college","the","and","of"].includes(x));const ok=w.length&&w.filter(x=>tl.includes(x)).length/w.length>=.6;
+   ck.push(ok?["ok","Institution name","matches "+inst]:["bad","Institution name","document does not name "+inst]);const rx=PRX6[purpose];if(rx)ck.push(rx.test(tl)?["ok","Issuing authority","wording matches a "+purpose]:["warn","Issuing authority","does not read like a "+purpose]);
+   const ex=expiry6(text);ck.push(ex==null?["warn","Validity date","no ‘valid till’ date found"]:ex<S.today?["bad","Validity date","expired on "+fmt(ex)]:ex-S.today<=30?["warn","Validity date",`valid till ${fmt(ex)} (≤30 days)`]:["ok","Validity date","valid till "+fmt(ex)])}
+  else ck.push(["warn","Text","no text layer; full OCR runs on the server version (Tesseract)"])}
+ const bad=ck.filter(k=>k[0]==="bad").length,warn=ck.filter(k=>k[0]==="warn").length,verdict=bad?"Suspicious":warn?"Needs officer review":"Looks genuine";
+ S.scans=S.scans||[];const I=S.insts.find(i=>i.name===inst),id="SCN-"+String(S.scans.length+1).padStart(4,"0");const checks=ck.map(([st,label,detail])=>({st,label,detail}));
+ S.scans.unshift({id,t:S.today,inst,reg:I?I.reg:"",purpose,filename:name,sha,ahash:ah,verdict,checks,by:role});log(role,"PROOF_SCANNED",id,`${purpose} · ${inst} · ${verdict}`);
+ if(bad)notify("Regional Office, "+(I?I.reg:""),"In-app + email",id,`Suspicious ${purpose} from ${inst}: `+checks.filter(k=>k.st==="bad").map(k=>k.label).join("; "));save();return {id,verdict,checks}}
+function demoDoc6(kind,purpose,inst){const good=kind==="genuine",yr=new Date(S.today*864e5).getUTCFullYear(),who=good?inst:inst.replace("IIIT","IIT").replace("Institute","Instt");
+ const auth={"Fire safety NOC":"Odisha Fire & Emergency Services","Lease deed":"Office of the Sub-Registrar","Building / structural stability certificate":"Chartered Structural Engineer"}[purpose]||"Issuing Office";
+ const L=[auth.toUpperCase(),purpose,"","This is to certify that the premises of "+who,"have been inspected and found in order.",`Certificate No. ${purpose.includes("Fire")?"FS":"CE"}/${yr}/0${good?417:390}`,"Valid till 31-03-"+(good?yr+2:yr-1)];
+ const c=document.createElement("canvas");c.width=900;c.height=620;const x=c.getContext("2d");x.fillStyle="#FAF8F0";x.fillRect(0,0,900,620);x.strokeStyle="#3A3A3A";x.lineWidth=4;x.strokeRect(14,14,872,592);
+ x.fillStyle="#191923";L.forEach((l,i)=>{x.font=(i<2?"bold 26px":"22px")+" Georgia,serif";x.fillText(l,60,70+i*44)});
+ if(good){x.strokeStyle="#2846BE";x.lineWidth=6;x.beginPath();x.arc(185,475,75,0,7);x.stroke();x.lineWidth=3;x.beginPath();x.arc(185,475,50,0,7);x.stroke();x.fillStyle="#2846BE";x.font="bold 18px Arial";x.fillText("SEAL",162,482);
+  x.strokeStyle="#1E32AA";x.lineWidth=4;x.beginPath();[[600,520],[640,480],[665,530],[700,470],[740,525],[790,490]].forEach(([a,b],i)=>i?x.lineTo(a,b):x.moveTo(a,b));x.stroke()}
+ return new Promise(res=>c.toBlob(b=>res({blob:b,img:c.toDataURL("image/png"),meta:{text:L.join(" "),software:good?"":"Adobe Photoshop 25.0"},name:(good?"genuine_":"tampered_")+purpose.split(" ")[0].toLowerCase()+".png"}),"image/png"))}
+/* call assistant: same menu as the server's /api/call */
+const MENU6="Press 1 or say complaint to register a complaint. Press 2 for the status of a complaint or application. Press 3 for an EVC visit date. Press 4 for hostel and PG safety. Press 0 to get a call back from an officer.";
+const CALLS6={};
+function instOf6(t){t=norm6(t);if(/iiit|triple i|bhubaneswar|bbsr/.test(t))return "IIIT Bhubaneswar";let best=null,sc=0;S.insts.forEach(i=>{const w=i.name.toLowerCase().match(/[a-z]+/g).filter(x=>!["of","institute","college","the","and"].includes(x));const n=w.filter(x=>t.includes(x)).length;if(n>sc){best=i.name;sc=n}});return best}
+function callStep6(st,inp){inp=(inp||"").trim();const s=norm6(inp),T=S.today,out=(say,n,end)=>{st.step=n;return {say,end:!!end}};const step=st.step||"start";
+ if(step==="start")return out("Namaste. You have reached AnuSahayak, the AICTE helpline. This call is recorded for your complaint file. "+MENU6,"menu");
+ if(["9","menu","main menu"].includes(s))return out(MENU6,"menu");
+ if(step==="menu"){if(s==="1"||s.includes("complain")){if(R().member){st.inst=R().inst;return out(`Your complaint will be filed against ${R().inst}. Please describe the problem.`,"cmp_text")}return out("Which institution is this about? Say its name.","cmp_inst")}
+  if(s==="2"||s.includes("status"))return out("Say or key in your complaint number, for example 4 1 8, or an application number like APP 27 1043.","status");
+  if(s==="3"||/evc|visit|inspection/.test(s))return out("Say or key in the application number, for example 1 1 6 0.","evc");
+  if(s==="4"||/hostel|pg/.test(s))return out("Which institution's hostels and PGs? Say its name.","hostel");
+  if(s==="0"||/officer|human|person/.test(s)){notify("Regional Office duty officer","Callback queue","CALL","Caller asked for an officer call back");log("AnuSahayak (call)","CALLBACK_REQUESTED","CALL","caller asked for an officer");save();return out("An officer will call you back within 2 hours, or within 30 minutes for a safety emergency. Thank you for calling.","end",true)}
+  return out("Sorry, I did not get that. "+MENU6,"menu")}
+ if(step==="cmp_inst"){const n=instOf6(inp);if(!n)return out("I could not find that institution. Please say the full name.","cmp_inst");st.inst=n;return out(n+". Please describe the problem in a few sentences.","cmp_text")}
+ if(step==="cmp_text"){if(inp.length<10)return out("Please describe the problem in a sentence or two.","cmp_text");const x=fileCmp(st.inst,R().member||"Caller",R().member?role:"",true,"call",inp,false);engine5();save();st.filed=x.id;
+  return out(`Registered. Your complaint number is ${x.id}. Category ${x.cat}. Threat level ${TL[x.threat-1]}. AICTE will respond within ${{1:"15 days",2:"10 days",3:"7 days",4:"48 hours"}[x.threat]}. You will get an SMS with this number. Press 9 for the main menu, or hang up.`,"menu")}
+ if(step==="status"){const dg=s.replace(/\D/g,"");const c=dg.length>=3&&dg.length<5?S.cmps.find(x=>x.id.endsWith(dg.slice(-3))):null;if(c)return out(`Complaint ${c.id} about ${c.inst} is ${c.status}, threat level ${TL[c.threat-1]}, response due ${fmt(c.due)}. Press 9 for the main menu.`,"menu");
+  const a=dg.length>=4?S.apps.find(x=>x.id.endsWith(dg.slice(-4))):null;if(a){const i=appInfo(a);return out(`Application ${a.id} for ${a.inst} is at the ${curStage(a)} stage, `+(i.left>=0?i.left+" days left.":(-i.left)+" days overdue, already escalated.")+" Press 9 for the main menu.","menu")}return out("I could not find that number. Please try again.","status")}
+ if(step==="evc"){const dg=s.replace(/\D/g,""),a=dg.length>=4?S.apps.find(x=>x.id.endsWith(dg.slice(-4))):null;if(!a)return out("I could not find that application. Please try again.","evc");
+  return out(a.evc&&a.evc.date?`The EVC visit for ${a.inst} is on ${fmt(a.evc.date)} with ${a.evc.panel.join(", ")}. Press 9 for the main menu.`:`The EVC for ${a.inst} is not scheduled yet. The Bureau has been reminded. Press 9 for the main menu.`,"menu")}
+ if(step==="hostel"){const n=instOf6(inp);if(!n)return out("I could not find that institution. Please say the full name.","hostel");const A=S.acc.filter(a=>a.inst===n);if(!A.length)return out(`No hostels or PGs are registered for ${n}. Press 1 to report one.`,"menu");
+  return out(n+". "+A.map(a=>{const lb=[["sexp","structural certificate"],["fexp","fire NOC"]],bad=lb.filter(([k])=>a[k]<T).map(x=>x[1]),soon=lb.filter(([k])=>a[k]>=T&&a[k]<=T+30).map(x=>x[1]);return a.name+": "+(bad.length?"expired "+bad.join(" and "):soon.length?"renewal due soon for "+soon.join(" and "):"certificates valid")}).join(". ")+". Press 1 to report a problem, or 9 for the main menu.","menu")}
+ return out(MENU6,"menu")}
+window.AP6={nav:()=>R().nav,pick:()=>!R().inst,userInst:()=>R().inst,member:()=>!!R().member,fmt,insts:()=>S.insts.filter(vis).map(i=>i.name).sort(),scans:()=>(S.scans||[]).filter(vis),refresh:async()=>{},rerender:()=>render(),
+ ask:q=>new Promise(res=>{const ob=bot;bot=(h,ch)=>{bot=ob;const d=document.createElement("div");d.innerHTML=h;res({text:d.textContent,chips:ch})};try{answer(q)}catch(e){bot=ob;res({text:"Sorry, that failed."})}}),
+ scan:(f,p,i)=>scanLocal6(f,f.name,p,i),demo:async(k,p,i)=>{const d=await demoDoc6(k,p,i);const r=await scanLocal6(d.blob,d.name,p,i,d.meta);r.img=d.img;return r},
+ call:async(cid,input)=>{if(!CALLS6[cid]){cid="CALL-"+Math.random().toString(16).slice(2,8).toUpperCase();CALLS6[cid]={step:"start"}}const st=CALLS6[cid],r=callStep6(st,input);if(r.end)delete CALLS6[cid];render6Soon();return {call_id:cid,...r,filed:st.filed}},
+ timeline:async inst=>{const refs=new Set([...S.apps,...S.und,...S.docs,...S.cmps,...S.acc,...(S.checks||[]),...(S.scans||[])].filter(x=>x.inst===inst).map(x=>x.id));
+  return S.audit.filter(e=>refs.has(e.ref)||e.ref===inst||String(e.detail).includes(inst)).filter(e=>!R().member||!/^CMP/.test(e.ref)||(S.cmps.find(c=>c.id===e.ref)||{}).name===role).map(e=>({...e,date:fmt(e.t)}))}};
+function render6Soon(){}
+
+V.scan=()=>scanView6();V.voice=()=>voiceView6();V.call=()=>callView6(false);V.timeline=()=>tlView6();
+
+/* ================= v7 HOME + GROUPED MENU ================= */
+const GROUPS7=[["Overview",["home","dash","inst"]],["Case work",["apps","scan","evc","raise","mine"]],["Compliance",["und","docs","alerts","reports","rules"]],["Campus voice",["complaints","risk","housing","voice","call"]],["Records",["audit","timeline"]]];
+function who7(){const r=R(),[x,y]=role.split("·").map(t=>t&&t.replace(/\s*\(.*\)/,"").trim());if(r.expert)return y||x;if(r.inst&&!r.member)return r.inst;if(r.member)return y&&y!==r.inst?y:x;return y?x+", "+y:x}
+function kind7(){const r=R();return r.pub?"pub":r.member?"member":r.expert?"expert":r.inst?"inst":"officer"}
+function tasks7(){const r=R(),k=kind7(),T=[],today=S.today,dd=d=>d>=0?"due in "+d+" d":(-d)+" d overdue";
+ if(k==="officer"||k==="inst"){
+  S.apps.filter(vis).filter(a=>a.status==="Active").forEach(a=>{const i=appInfo(a);if(k==="officer"&&i.l<2)return;
+   T.push({l:i.l,t:k==="inst"?`${a.id} is at ${curStage(a)}`:`${a.id} · ${a.inst}: ${curStage(a)}`,s:`${a.type} · ${dd(i.left)} · ${fmt(i.due)}`,due:i.due,go:k==="inst"?"inst":"apps",id:a.id})});
+  S.und.filter(vis).filter(u=>u.st!=="Verified").forEach(u=>{const l=lvl(u.due-today,"und");if(k==="officer"&&l<2&&u.st!=="Evidence submitted")return;
+   T.push({l:u.st==="Evidence submitted"&&l<2?2:l,t:k==="inst"?`Upload evidence for ${u.id}`:(u.st==="Evidence submitted"?`Verify evidence ${u.id} · ${u.inst}`:`${u.id} · ${u.inst}`),s:`${u.cond} · ${dd(u.due-today)}`,due:u.due,go:"und"})});
+  S.docs.filter(vis).filter(x=>!(x.st==="Renewal verified"&&x.exp>today+90)).forEach(x=>{const l=lvl(x.exp-today,"doc");if(l<2)return;
+   T.push({l,t:k==="inst"?`Renew ${x.type}`:`${x.type} · ${x.inst}`,s:x.exp<today?"expired "+(today-x.exp)+" d ago":"expires in "+(x.exp-today)+" d · "+fmt(x.exp),due:x.exp,go:"docs"})});
+  S.cmps.filter(vis).filter(c=>c.status!=="Closed").forEach(c=>{const l=c.due<today-7?4:c.due<today?3:c.threat;if(k==="officer"&&l<3)return;
+   T.push({l,t:`${c.id} · ${c.cat}`,s:`${TL[c.threat-1]} · ${c.inst} · response ${dd(c.due-today)}`,due:c.due,go:k==="inst"?"timeline":"complaints"})});
+  S.acc.filter(vis).forEach(a=>{const w=Math.min(a.sexp,a.fexp)-today,l=lvl(w,"doc");if(l<2)return;
+   T.push({l,t:`${k==="inst"?"Renew safety papers: ":""}${a.kind} ${a.name}`,s:`${a.students} students · ${w<0?"papers EXPIRED":"due in "+w+" d"}`,due:today+w,go:k==="inst"?"docs":"housing"})});
+ }else if(k==="expert"){
+  S.apps.filter(a=>a.status==="Active"&&curStage(a)==="EVC"&&a.evc&&a.evc.panel.includes(r.expert)).forEach(a=>{const i=appInfo(a),v=a.evc.date;
+   T.push({l:i.l,t:`EVC visit · ${a.inst}`,s:v?`visit ${fmt(v)} · report ${dd(i.left)}`:"date not set",due:v||i.due,go:"evc"})});
+ }else if(k==="member"){
+  S.cmps.filter(c=>c.name===role&&c.status!=="Closed").forEach(c=>T.push({l:c.due<today?3:1,t:`${c.id} · ${c.cat}`,s:`${c.status} · AICTE reply ${dd(c.due-today)}`,due:c.due,go:"mine"}));
+ }
+ return T.sort((a,b)=>b.l-a.l||a.due-b.due)}
+function kpis7(){const k=kind7(),r=R(),today=S.today;const mx=a=>a.length?Math.max(...a):1;
+ if(k==="officer"){const A=S.apps.filter(vis).filter(a=>a.status==="Active").map(appInfo),C=S.cmps.filter(vis).filter(c=>c.status!=="Closed"),D=S.docs.filter(vis).filter(x=>x.exp-today<=30),H=S.acc.filter(vis).filter(a=>Math.min(a.sexp,a.fexp)<today+30);
+  const ov=A.filter(i=>i.l>=3).length,crit=C.filter(c=>c.threat===4).length;
+  return[["Active applications",A.length,ov?3:1,"apps"],["Applications overdue",ov,ov?(A.some(i=>i.l===4)?4:3):1,"alerts"],["Open complaints",C.length,crit?4:C.length?2:1,"complaints",crit?crit+" critical":""],["Documents expiring ≤30 d",D.length,D.some(x=>x.exp<today)?4:D.length?3:1,"docs"],["Hostels / PGs at risk",H.length,H.some(a=>Math.min(a.sexp,a.fexp)<today)?4:H.length?3:1,"housing"]]}
+ if(k==="inst"){const items=[...S.apps.filter(vis).filter(a=>a.status==="Active").map(a=>appInfo(a).l),...S.und.filter(vis).filter(u=>u.st!=="Verified").map(u=>lvl(u.due-today,"und")),...S.docs.filter(vis).map(x=>lvl(x.exp-today,"doc")),...S.acc.filter(vis).map(a=>lvl(Math.min(a.sexp,a.fexp)-today,"doc"))];
+  const h=items.length?Math.round(100*items.filter(l=>l===1).length/items.length):100,U=S.und.filter(vis).filter(u=>u.st!=="Verified"),D=S.docs.filter(vis).filter(x=>x.exp-today<=90),C=S.cmps.filter(vis).filter(c=>c.status!=="Closed");
+  return[["Compliance health",h+"%",h>=85?1:h>=70?2:h>=50?3:4,"inst"],["Open undertakings",U.length,mx(U.map(u=>lvl(u.due-today,"und"))),"und"],["Documents expiring ≤90 d",D.length,mx(D.map(x=>lvl(x.exp-today,"doc"))),"docs"],["Complaints about you",C.length,mx(C.map(c=>c.threat)),"timeline"]]}
+ if(k==="expert"){const E=S.apps.filter(a=>a.status==="Active"&&curStage(a)==="EVC"&&a.evc&&a.evc.panel.includes(r.expert));const wk=E.filter(a=>a.evc.date&&a.evc.date-today<=7&&a.evc.date>=today).length;
+  return[["Assigned EVC visits",E.length,1,"evc"],["Visits in next 7 days",wk,wk?2:1,"evc"],["Reports pending",E.filter(a=>!a.evc.report).length,mx(E.map(a=>appInfo(a).l)),"evc"]]}
+ const M=S.cmps.filter(c=>c.name===role),o=M.filter(c=>c.status!=="Closed");
+ return[["My open complaints",o.length,o.some(c=>c.due<today)?3:o.length?2:1,"mine"],["Resolved",M.length-o.length,1,"mine"],["Campus hostels / PGs",S.acc.filter(vis).length,mx(S.acc.filter(vis).map(a=>lvl(Math.min(a.sexp,a.fexp)-today,"doc"))),"raise"]]}
+const LVW=["Good","Watch","Act now","Act now"];
+const QA7={officer:[["apps","🗂️ Applications"],["evc","🏫 Schedule EVC"],["scan","🔍 Scan a proof"],["complaints","📣 Complaints"],["risk","🛡️ Watchlist"]],inst:[["scan","🔍 Scan + submit proof"],["und","📝 Undertakings"],["docs","📄 Renew documents"],["call","📞 Helpline"]],expert:[["evc","🏫 My EVC visits"],["scan","🔍 Scan a photo"],["voice","🎙️ Voice assistant"]],member:[["raise","📣 Raise a complaint"],["mine","🗒️ My complaints"],["call","📞 Call AnuSahayak"],["voice","🎙️ Speak instead"]]};
+function badge7(k){const r=R(),today=S.today;let n=0,l=1;const up=x=>{n++;l=Math.max(l,x)};
+ if(k==="home")tasks7().forEach(t=>{if(t.l>=3)up(t.l)});
+ else if(k==="apps")S.apps.filter(vis).filter(a=>a.status==="Active").forEach(a=>{const x=appInfo(a).l;if(x>=3)up(x)});
+ else if(k==="alerts")S.apps.filter(vis).filter(a=>a.status==="Active").forEach(a=>{const x=appInfo(a).l;if(x>=3)up(x)});
+ else if(k==="und")S.und.filter(vis).filter(u=>u.st!=="Verified").forEach(u=>{const x=lvl(u.due-today,"und");if(x>=2)up(x)});
+ else if(k==="docs")S.docs.filter(vis).filter(x=>!(x.st==="Renewal verified"&&x.exp>today+90)).forEach(x=>{const v=lvl(x.exp-today,"doc");if(v>=2)up(v)});
+ else if(k==="complaints")S.cmps.filter(vis).filter(c=>c.status!=="Closed").forEach(c=>up(c.threat));
+ else if(k==="housing")S.acc.filter(vis).forEach(a=>{const v=lvl(Math.min(a.sexp,a.fexp)-today,"doc");if(v>=3)up(v)});
+ else if(k==="risk")S.insts.filter(vis).forEach(i=>{if(i.threat>=3)up(i.threat)});
+ else if(k==="mine")S.cmps.filter(c=>c.name===role&&c.status!=="Closed").forEach(()=>up(1));
+ else if(k==="evc")S.apps.filter(vis).filter(a=>a.status==="Active"&&curStage(a)==="EVC"&&(!r.expert||(a.evc&&a.evc.panel.includes(r.expert)))).forEach(a=>up(appInfo(a).l));
+ return n?`<span class="n L${l}">${n}</span>`:""}
+function navHTML(){const nav=R().nav,used=new Set();let h="";
+ GROUPS7.forEach(([g,ks])=>{const in_=nav.filter(k=>ks.includes(k));if(!in_.length)return;h+=`<div class="grp">${g}</div>`;in_.forEach(k=>{used.add(k);h+=b7(k)})});
+ const rest=nav.filter(k=>!used.has(k));if(rest.length)h+=`<div class="grp">More</div>`+rest.map(b7).join("");
+ return h+`<div class="legend"><b>Colour scale</b><span><i style="background:var(--l1)"></i>On track · valid · T1</span><span><i style="background:var(--l2d)"></i>Due soon · T2</span><span><i style="background:var(--l3)"></i>Overdue · T3</span><span><i style="background:var(--l4)"></i>Escalated · expired · T4</span></div>`}
+function b7(k){return `<button data-v="${k}" class="${k===cur?"on":""}" onclick="go('${k}')">${NAV[k]}${badge7(k)}</button>`}
+window.openTask7=(go_,id)=>{if(id&&R().nav.includes("apps")){go("apps");openApp(id)}else go(go_)};
+V.home=()=>{const k=kind7(),T=tasks7(),K=kpis7(),hr=new Date().getHours(),gr=hr<12?"Good morning":hr<17?"Good afternoon":"Good evening";
+ const c=[4,3,2,1].map(l=>[l,T.filter(t=>t.l===l).length]),lab={4:"escalated",3:"overdue",2:"due soon",1:"on track"};
+ const src=k==="member"?S.cmps.filter(x=>x.name===role):k==="expert"?S.apps.filter(a=>a.evc&&a.evc.panel.includes(R().expert)):[...S.apps,...S.und,...S.docs,...S.cmps,...S.acc,...(S.scans||[])].filter(vis);const refs=new Set(src.map(x=>x.id));
+ const act=S.audit.filter(e=>refs.has(e.ref)).slice(-7).reverse();
+ const head=T.some(t=>t.l>=3)?"Some items need you today. Red and orange first.":T.length?"Nothing overdue. A few items are coming up.":"You are all caught up.";
+ return `<div class="hello"><div><div class="muted">${role.split("·")[0].trim()} · ${fmt(S.today)}</div><h1>${gr}, ${who7()}</h1><p class="sub" style="margin:0">${head}</p></div>
+ <div class="counts">${c.filter(x=>x[1]).map(([l,n])=>`<span class="lv L${l}"><i></i>${n} ${lab[l]}</span>`).join("")}</div></div>
+ <div class="kts">${K.map(([t,v,l,g,x])=>`<button class="kt L${l}" onclick="go('${g}')"><small>${t}</small><b>${v}</b><span class="lv L${l}"><i></i>${x||LVW[l-1]}</span></button>`).join("")}</div>
+ <div class="homeg"><div class="card"><h3>Needs your attention</h3>${T.length?T.slice(0,8).map(t=>`<div class="task"><span class="dot L${t.l}"></span><div><b>${t.t}</b><small>${t.s}</small></div><button class="btn ghost s" onclick="openTask7('${t.go}','${t.id||""}')">Open</button></div>`).join("")+(T.length>8?`<div class="muted" style="padding-top:8px">+${T.length-8} more</div>`:""):`<div class="empty"><div>✅</div>Nothing pending.${k==="member"?` <a href="#" onclick="go('raise');return false">Raise a complaint</a> if something is wrong on campus.`:""}</div>`}</div>
+ <div style="display:flex;flex-direction:column;gap:14px;min-width:0"><div class="card" style="margin:0"><h3>Quick actions</h3><div class="qa">${(QA7[k]||[]).filter(([g])=>R().nav.includes(g)).map(([g,t])=>`<button class="btn ghost s" onclick="go('${g}')">${t}</button>`).join("")}<button class="btn ghost s" onclick="toggleChat()">🤖 Ask AnuSahayak</button></div></div>
+ <div class="card" style="margin:0"><h3>Recent activity</h3>${act.map(e=>`<div class="act"><b>${e.action.toLowerCase().replace(/_/g," ")}</b> · ${e.ref}<br><small>${fmt(e.t)} · ${e.actor} · ${String(e.detail).slice(0,90)}</small></div>`).join("")||'<div class="muted">No activity yet.</div>'}</div></div></div>`};
+/* ================= ROUTER ================= */
+function render(){window._af=$("#af")?$("#af").value:window._af;$("#today").textContent=fmt(S.today);$("#nav").innerHTML=navHTML();$("#main").innerHTML=V[cur]();save()}
+window.go=v=>{if(v!=="timeline")tlEv6=null;cur=v;closeD();render();window.scrollTo(0,0)};
+const PORTAL9="official";document.documentElement.dataset.portal=PORTAL9;
+Object.keys(ROLES).forEach(r=>{const x=ROLES[r],off=!x.inst&&!x.member&&!x.pub;if(off!==(PORTAL9==="official"))delete ROLES[r]});
+Object.values(ROLES).forEach(r=>{if(!r.expert&&!r.reg&&!r.nav.includes("track")&&(PORTAL9==="people"))r.nav.push("track")});
+role=Object.keys(ROLES)[0];cur=R().nav[0];NAV.track="🔎 Track by number";GROUPS7[4][1].push("track");
+const HOW9=()=>`<div class="how"><div class="${PORTAL9==="people"?"me":""}"><b>1 · AnuPalan (public site)</b>anyone reports a problem (form or Sahayak AI bot); colleges apply and upload proofs</div><div class="${PORTAL9==="official"?"me":""}"><b>2 · AICTE Admin Portal (officials only)</b>AICTE receives the whole complaint live: routes, inspects, verifies, decides</div><div class="${PORTAL9==="people"?"me":""}"><b>3 · Back on AnuPalan</b>status and the action taken, tracked by number</div></div>`;
+const _home9=V.home;V.home=()=>HOW9()+_home9();const _raise9=V.raise;V.raise=()=>(R().pub?HOW9():"")+_raise9();
+/* live link: both sites read and write the same store; whichever acts, the other refreshes */
+let SIG9="";try{SIG9=localStorage.getItem("anupalan13")||""}catch(e){}
+function sync9(nv,quiet){if(nv==null||nv===SIG9)return;SIG9=nv;let n;try{n=JSON.parse(nv)}catch(e){return}const had=S.audit.length,old12=new Set(S.cmps.map(c=>c.id));S=n;const inc12=S.cmps.filter(c=>!old12.has(c.id));if(inc12.length&&PORTAL9==="official"&&window.incoming12)incoming12(inc12,fmt,()=>go("complaints"));
+ const fresh=S.audit.slice(had).filter(e=>!["Engine","System"].includes(e.actor)).pop();
+ const busy=document.querySelector("#drawer.open")||["INPUT","TEXTAREA","SELECT"].includes((document.activeElement||{}).tagName);if(!busy)render();
+ if(fresh&&!quiet)toast(`🔗 Live from the ${PORTAL9==="official"?"AnuPalan":"AICTE Admin Portal"}: ${fresh.action.toLowerCase().replace(/_/g," ")} · ${fresh.ref}`)}
+window.addEventListener("storage",e=>{if(e.key==="anupalan13")sync9(e.newValue)});
+setInterval(()=>{try{sync9(localStorage.getItem("anupalan13"))}catch(e){}},2500);
+const _save9=save;save=function(){_save9();try{SIG9=localStorage.getItem("anupalan13")||""}catch(e){}};
+const STEP9={COMPLAINT_FILED:"Received by AICTE",COMPLAINT_UNDER_REVIEW:"An officer is looking into it",COMPLAINT_ACTION_TAKEN:"Action taken",COMPLAINT_CLOSED:"Closed",ESCALATED:"Escalated to a senior officer",AUTO_ROUTED:"Moved to the next stage",STAGE_COMPLETED:"Stage completed",RETURNED:"Returned to the institution",EVC_SCHEDULED:"Expert visit scheduled",DECISION:"Decision issued"};
+let TRK9="";
+V.track=()=>`<h1>Track a complaint or application</h1><p class="sub">No sign-in needed. Enter the number from the SMS or the screen, for example CMP-27-000413 or APP-27-1160. You see what AICTE has done; the college never sees who complained.</p>
+<form class="card" onsubmit="event.preventDefault();TRK9=document.getElementById('tq').value.trim().toUpperCase();render()" style="display:flex;gap:8px;flex-wrap:wrap"><input id="tq" value="${TRK9}" placeholder="CMP-27-000413" style="flex:1;min-width:200px" aria-label="Number"><button class="btn">Track</button></form>${trk9(TRK9)}`;
+function trk9(id){if(!id)return"";const ev=S.audit.filter(e=>e.ref===id).map(e=>({d:fmt(e.t),s:STEP9[e.action]||e.action.replace(/_/g," ").toLowerCase(),by:["AnuSahayak","Engine","System"].includes(e.actor)?"AnuSahayak":"AICTE"}));
+ const c=S.cmps.find(x=>x.id===id),a=S.apps.find(x=>x.id===id);if(!c&&!a)return `<div class="card"><b class="bad">No complaint or application with that number.</b><div class="muted">Check the number in your SMS.</div></div>`;
+ const st=c?["Received","Under review","Action taken","Closed"]:stages(a),cur=c?Math.max(0,["Open","Under review","Action taken","Closed"].indexOf(c.status)):Math.min(a.si,st.length-1),left=c?c.due-S.today:0;
+ return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><div><h3 style="margin:0">${id} · ${(c||a).inst}</h3><div class="muted">${c?c.cat+" · filed "+fmt(c.t):a.type+" · now at "+curStage(a)}</div></div>
+ <div>${c?tchip(c.threat)+" "+(c.status==="Closed"?'<span class="lv L1"><i></i>Closed</span>':left<0?`<span class="lv L3"><i></i>Reply overdue ${-left} d</span>`:`<span class="lv L1"><i></i>Reply due ${fmt(c.due)}</span>`):`<span class="lv L1"><i></i>${a.status}</span>`}</div></div>
+ <div class="trk">${st.map((x,i)=>`<div class="${i<cur?"done":i===cur?"now":""}"><b>${i<cur?"✓":i+1}</b><span>${x}</span></div>`).join("")}</div>
+ ${c&&c.action?`<div class="ai"><b>Action recorded by AICTE:</b> ${c.action}</div>`:""}<h3 style="margin-top:14px">History</h3><div class="tl">${ev.map(e=>`<div><b>${e.d}</b> · ${e.s} <span class="muted">(${e.by})</span></div>`).join("")||'<div class="muted">No events yet.</div>'}</div></div>`}
+window.track9=id=>{TRK9=id;go("track")};
+$("#role").innerHTML=Object.keys(ROLES).map(r=>`<option>${r}</option>`).join("");
+$("#role").onchange=e=>{role=e.target.value;vlog6=[];call6=null;scanRes6=null;scanImg6="";tlInst6=null;tlEv6=null;cur=R().nav[0];closeD();render();toast("Viewing as "+role)};
+if(!load())seed();render();
+</script>
+
+<script>
+/* v12: the AICTE Admin Portal shows every complaint the moment the Frontend registers it, in full */
+(()=>{const C=["#1F7A4D","#8A6A00","#B4560B","#B12A3B"],N=["T1 Low","T2 Elevated","T3 High","T4 Critical"];
+const e=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const st=document.createElement("style");st.textContent=`.inc12{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;flex-direction:column-reverse;gap:10px;width:min(400px,calc(100vw - 32px));max-height:80vh;overflow:auto}
+.inc12 article{background:#fff;color:#14262A;border:1px solid #D6E2E3;border-left:6px solid var(--c);border-radius:12px;box-shadow:0 8px 28px #0003;padding:12px 14px;font:13.5px/1.45 Inter,"Segoe UI",Arial,sans-serif;animation:inc12 .35s ease-out}
+.inc12 h4{margin:0 0 6px;font-size:13px;color:#0B5A63;display:flex;gap:6px;align-items:center}.inc12 h4 b{margin-left:auto;background:var(--c);color:#fff;border-radius:10px;padding:1px 8px;font-size:11.5px}
+.inc12 .id{font:700 16px/1.2 Inter,Arial,sans-serif}.inc12 q{display:block;margin:6px 0;padding:6px 9px;background:#F1F6F6;border-radius:8px;quotes:"“" "”"}
+.inc12 dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:12.5px}.inc12 dt{color:#52666B}.inc12 dd{margin:0}
+.inc12 .act{display:flex;gap:8px;margin-top:9px}.inc12 button{border:0;border-radius:8px;padding:7px 12px;font-weight:600;cursor:pointer}.inc12 .go{background:#0B5A63;color:#fff}.inc12 .x{background:#EAF3F3;color:#14262A}
+@keyframes inc12{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}`;document.head.appendChild(st);
+window.incoming12=(list,fmt,open)=>{let box=document.querySelector(".inc12");if(!box){box=document.createElement("div");box.className="inc12";box.setAttribute("aria-live","assertive");document.body.appendChild(box)}
+ list.forEach(c=>{const l=Math.min(4,Math.max(1,c.threat||1)),a=document.createElement("article");a.style.setProperty("--c",C[l-1]);
+  const by=c.by||c.by_role||"Someone",anon=c.anon??c.anonymous,ch=c.ch||c.channel||"web";
+  a.innerHTML=`<h4>📥 Received live from AnuPalan <b>${N[l-1]}</b></h4><div class="id">${e(c.id)}</div><q>${e(c.text)}</q>
+  <dl><dt>College</dt><dd>${e(c.inst)}</dd><dt>Problem</dt><dd>${e(c.cat||c.category)}</dd><dt>From</dt><dd>${e(by)}${anon?" · name hidden from college":""}</dd>
+  <dt>Channel</dt><dd>${e(ch)}</dd>${c.contact?`<dt>Mobile</dt><dd>📱 ${e(c.contact)} · SMS updates</dd>`:""}<dt>Reply by</dt><dd>${e(fmt(c.due))}</dd></dl>
+  <div class="act"><button class="go">Open in Complaints</button><button class="x">Dismiss</button></div>`;
+  a.querySelector(".go").onclick=()=>{a.remove();open(c.id)};a.querySelector(".x").onclick=()=>a.remove();box.appendChild(a);
+  setTimeout(()=>a.isConnected&&a.remove(),60000)})}})();
+
+</script>
+</body></html>
