@@ -1,4 +1,4 @@
-# Anupalan(https://claude.ai/artifact/Pd2vBqsdGgsKSbkBKnrupy)
+# Anupalan
 AnuPalan is a single platform that automates how AICTE approves technical institutions and keeps them compliant afterwards.It routes each application through scrutiny, the Expert Visit Committee (EVC) and SAC/SHC, and keeps track of undertakings and document renewals. It sends alerts before deadlines are missed.
 
 Features:-
