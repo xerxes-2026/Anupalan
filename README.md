@@ -1,4 +1,4 @@
-# Anupalan(https://anupalanf.netlify.app)
+# Anupalan(https://anupalan1.netlify.app)
 AnuPalan is a single platform that automates how AICTE approves technical institutions and keeps them compliant afterwards.It routes each application through scrutiny, the Expert Visit Committee (EVC) and SAC/SHC, and keeps track of undertakings and document renewals. It sends alerts before deadlines are missed.
 
 Features:-
@@ -11,5 +11,5 @@ Features:-
 - An audit trail of every action
 
 
-- Public-Site:https://anupalanf.netlify.app
-- AICTE Admin's portal:https://aicte-admin-portal.netlify.app
+- Public-Site:https://anupalan1.netlify.app
+- AICTE Admin's portal:
